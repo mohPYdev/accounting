@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="757b1ae7-d504-480a-967d-bb15939d194b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/costumer/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/costumer/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Instrument.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/costumer/Salary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Salary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +49,14 @@
       <option name="presentableId" value="Default" />
       <updated>1593176984632</updated>
     </task>
+    <task id="LOCAL-00001" summary="created Bill , Instrument , Salary classes">
+      <created>1593782609549</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593782609549</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -70,8 +74,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
+    <MESSAGE value="created Bill , Instrument , Salary classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="created Bill , Instrument , Salary classes" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1593782608245">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593782608245" />
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593765851762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
