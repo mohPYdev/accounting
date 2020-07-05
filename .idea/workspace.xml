@@ -26,7 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="757b1ae7-d504-480a-967d-bb15939d194b" name="Default Changelist" comment="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
-      <change beforePath="$PROJECT_DIR$/src/costumer/Receivals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Receivals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/costumer/Municipality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Municipality.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593984532279</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
+      <created>1593984706196</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593984706196</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,6 +152,10 @@
     </state>
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1593765851762" />
     <state x="738" y="433" width="448" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.1053@72.27.1848.1053" timestamp="1593983401016" />
+    <state x="172" y="127" width="1648" height="853" key="dock-window-1" timestamp="1593985248618">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="172" y="127" width="1648" height="853" key="dock-window-1/72.27.1848.1053@72.27.1848.1053" timestamp="1593985248618" />
     <state x="774" y="396" width="444" height="321" key="git4idea.ui.GitTagDialog" timestamp="1593983624187">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
