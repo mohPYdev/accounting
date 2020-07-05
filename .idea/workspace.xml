@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:bno" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="757b1ae7-d504-480a-967d-bb15939d194b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/costumer/Costumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/costumer/Factory.java" afterDir="false" />
+    <list default="true" id="757b1ae7-d504-480a-967d-bb15939d194b" name="Default Changelist" comment="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
+      <change afterPath="$PROJECT_DIR$/src/costumer/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/costumer/Municipality.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/costumer/Receivals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="accounting" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,17 +50,18 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1drIrSl6p379lhWMFkkGkxhK02K" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593782609549</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
+      <created>1593983710691</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593983710691</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -67,27 +97,53 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ORDER" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="bno" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <MESSAGE value="created Bill , Instrument , Salary classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="created Bill , Instrument , Salary classes" />
+    <MESSAGE value="a tag add \\ tag name:wa(without Alireza)" />
+    <MESSAGE value="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1593782608245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593782608245" />
-    <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593765851762">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="479" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1593983475931">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="479" y="131" width="1024" height="852" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1593983475931" />
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1593983723276">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1593983723276" />
+    <state x="738" y="433" width="448" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593983401016">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="492" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1593765851762" />
+    <state x="738" y="433" width="448" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.1053@72.27.1848.1053" timestamp="1593983401016" />
+    <state x="774" y="396" width="444" height="321" key="git4idea.ui.GitTagDialog" timestamp="1593983624187">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="774" y="396" width="444" height="321" key="git4idea.ui.GitTagDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1593983624187" />
     <state x="346" y="49" key="search.everywhere.popup" timestamp="1593781662677">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
