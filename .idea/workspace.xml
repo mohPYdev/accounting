@@ -27,7 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="757b1ae7-d504-480a-967d-bb15939d194b" name="Default Changelist" comment="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/costumer/Municipality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Municipality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/costumer/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/costumer/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/costumer/MAIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/MAIN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +59,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/te" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -100,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593984706196</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
+      <created>1593985552479</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593985552479</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +149,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593782608245" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593985641238">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1593985641238" />
     <state x="479" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1593983475931">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
