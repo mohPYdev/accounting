@@ -14,4 +14,12 @@ public class Receivals  {
     public String getReason(){return reason;}
     public int getCost(){return cost;}
 
+    Receivals(String ID, String date , String reason ,int cost)
+    {
+        this.ID = ID;
+        this.date = date;
+        this.reason = reason;
+        this.cost = cost;
+    }
+
 }

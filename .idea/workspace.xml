@@ -26,10 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="757b1ae7-d504-480a-967d-bb15939d194b" name="Default Changelist" comment="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
-      <change afterPath="$PROJECT_DIR$/src/costumer/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/costumer/Municipality.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/costumer/Receivals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/costumer/Receivals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/costumer/Receivals.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593983710691</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merge pull request #3 from mohPYdev/testing&#10;&#10;created Factory , Costumer classes">
+      <created>1593984532279</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593984532279</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
