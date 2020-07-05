@@ -1,5 +1,6 @@
 package costumer;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Factory extends Costumer{
@@ -28,5 +29,7 @@ public class Factory extends Costumer{
         this.boss_name=boss_name;
         this.address=address;
         this.date_of_establishment=date_of_establishment;
+        new File("/home/alireza/Desktop/accounting_project_info/factories_info/"+name+"/income").mkdirs();
+        new File("/home/alireza/Desktop/accounting_project_info/factories_info/"+name,"expense").mkdir();
     }
 }

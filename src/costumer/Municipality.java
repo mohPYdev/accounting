@@ -1,5 +1,6 @@
 package costumer;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Municipality extends Costumer{
@@ -19,5 +20,10 @@ public class Municipality extends Costumer{
 
         this.mayor_name=mayor_name;
         this.region=region;
+
+        new File("/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"/income").mkdirs();
+        new File("/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name,"expense").mkdir();
+
     }
+
 }
