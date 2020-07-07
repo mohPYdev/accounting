@@ -54,7 +54,12 @@ public class Factory extends Costumer implements acci {
     }
 
     @Override
-    public void income() {
+    public void income() throws Exception {
+
+    }
+
+    @Override
+    public void expence() throws Exception {
 
     }
 }

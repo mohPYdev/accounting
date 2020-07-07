@@ -17,6 +17,6 @@ public class MAIN {
 interface acci
 {
     public void info() throws Exception;
-    public void income();
-
+    public void income()throws Exception;
+    public void expence()throws Exception;
 }

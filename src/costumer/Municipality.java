@@ -39,6 +39,7 @@ public class Municipality extends Costumer implements acci{
         Instrument Municipality_Instrument = new Instrument(date_Instrument , price_Instrument , side1_name_Instrument , side2_name_Instrument);
         Factor Municipality_Factor = new Factor(ID_Factor, date_Factor ,  type_Factor , sender_Factor ,receiver_Factor , products_Factor);
         Salary Municipality_Salary=new Salary(date_Salary , price_Salary , emp_name_Salary);
+
     }
 
     @Override
@@ -51,10 +52,23 @@ public class Municipality extends Costumer implements acci{
         fm.format(" %s %s ", "\nemployee_names :", employee_names.toString());
         fm.flush();
         fm.close();
+
     }
 
     @Override
-    public void income() {
+    public void income()throws Exception {
 
+    }
+
+    @Override
+    public void expence()throws Exception {
+        File expence = new File(expencepath, "expence.txt");
+        expence.createNewFile();
+        Formatter fm = new Formatter(expence);
+        //???
+        fm.format("%s %s %s %s %s %s %s ", "<<Instrument>>\n", "|date:","???????", "\t| price :", "??????", "\t| emp_name :", "??????");
+        //???
+        fm.flush();
+        fm.close();
     }
 }

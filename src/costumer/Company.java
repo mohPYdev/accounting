@@ -50,7 +50,12 @@ public class Company extends Costumer implements acci {
     }
 
     @Override
-    public void income() {
+    public void income() throws Exception {
+
+    }
+
+    @Override
+    public void expence() throws Exception {
 
     }
 }
