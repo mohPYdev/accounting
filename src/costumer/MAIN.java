@@ -13,3 +13,10 @@ public class MAIN {
     }
     // for 4 methods
 }
+
+interface acci
+{
+    public void info(String infopath) throws Exception;
+    public void income(String infcomepath);
+
+}

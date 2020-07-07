@@ -2,8 +2,9 @@ package costumer;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Formatter;
 
-public class Company extends Costumer {
+public class Company extends Costumer implements acci {
     private int econemic_code;
     private String boss_name;
     private String address;
@@ -28,5 +29,23 @@ public class Company extends Costumer {
 
         new File("/home/alireza/Desktop/accounting_project_info/companies_info/"+name+"/income").mkdirs();
         new File("/home/alireza/Desktop/accounting_project_info/companies_info/"+name,"expense").mkdir();
+    }
+
+    @Override
+    public void info(String infopath) throws Exception {
+        File info = new File(infopath,"info.txt");
+        info.createNewFile();
+        Formatter fm = new Formatter(info);
+        fm.format("%s %s %s %s %s %s %s %s ", "Name :" ,name,"\t| email :",email,"\t| Activity type :",activity_type,"\t| Phone Number :",phone_number);
+        fm.format("%s %i %s %s %s %s %s %s ", "\nEconemic_code :" ,econemic_code,"\t| boss name :",boss_name,"\t| address :",address,"\t| Date of establishmen :",date_of_establishment);
+        fm.format(" %s %s ", "\nemployee_names :" ,employee_names.toString());
+        fm.flush();
+        fm.close();
+
+    }
+
+    @Override
+    public void income(String infcomepath) {
+
     }
 }

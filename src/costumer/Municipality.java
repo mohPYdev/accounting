@@ -2,8 +2,9 @@ package costumer;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Formatter;
 
-public class Municipality extends Costumer{
+public class Municipality extends Costumer implements acci{
 
     private String mayor_name;
     private int region;
@@ -26,4 +27,20 @@ public class Municipality extends Costumer{
 
     }
 
+    @Override
+    public void info(String infopath) throws Exception {
+        File info = new File(infopath, "info.txt");
+        info.createNewFile();
+        Formatter fm = new Formatter(info);
+        fm.format("%s %s %s %s %s %s %s %s ", "Name :", name, "\t| email :", email, "\t| Activity type :", activity_type, "\t| Phone Number :", phone_number);
+        fm.format("%s %s %s %i ", "\n Mayor name :", mayor_name, "\t| region :", region);
+        fm.format(" %s %s ", "\nemployee_names :", employee_names.toString());
+        fm.flush();
+        fm.close();
+    }
+
+    @Override
+    public void income(String infcomepath) {
+
+    }
 }
