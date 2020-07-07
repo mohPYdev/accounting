@@ -16,7 +16,7 @@ public class MAIN {
 
 interface acci
 {
-    public void info(String infopath) throws Exception;
-    public void income(String infcomepath);
+    public void info() throws Exception;
+    public void income();
 
 }

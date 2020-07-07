@@ -14,21 +14,35 @@ public class Municipality extends Costumer implements acci{
     public void setMayor_name(String mayor_name){this.mayor_name=mayor_name;}
     public void setRegion(int region){this.region=region;}
 
+    //---
+    String infopath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name;
+    String incomepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"/income";
+    String expencepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"expense";
+
     Municipality(String name, String email, String phone_number
-            , String activity_type, ArrayList<String> employee_names,String mayor_name,int region) {
+            , String activity_type, ArrayList<String> employee_names,String mayor_name,int region,
+                 String date_Instrument , String price_Instrument , String side1_name_Instrument , String side2_name_Instrument,
+                 String ID_Factor, String date_Factor , Factor.types type_Factor , String sender_Factor ,String receiver_Factor , ArrayList<Product> products_Factor
+            ,String date_Salary , String price_Salary , String emp_name_Salary) {
 
         super(name, email, phone_number, activity_type, employee_names);
 
         this.mayor_name=mayor_name;
         this.region=region;
 
-        new File("/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"/income").mkdirs();
-        new File("/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name,"expense").mkdir();
+        new File(incomepath).mkdirs();
+        new File(incomepath,"expense").mkdir();
 
+        //income:
+
+        //expence:
+        Instrument Municipality_Instrument = new Instrument(date_Instrument , price_Instrument , side1_name_Instrument , side2_name_Instrument);
+        Factor Municipality_Factor = new Factor(ID_Factor, date_Factor ,  type_Factor , sender_Factor ,receiver_Factor , products_Factor);
+        Salary Municipality_Salary=new Salary(date_Salary , price_Salary , emp_name_Salary);
     }
 
     @Override
-    public void info(String infopath) throws Exception {
+    public void info() throws Exception {
         File info = new File(infopath, "info.txt");
         info.createNewFile();
         Formatter fm = new Formatter(info);
@@ -40,7 +54,7 @@ public class Municipality extends Costumer implements acci{
     }
 
     @Override
-    public void income(String infcomepath) {
+    public void income() {
 
     }
 }

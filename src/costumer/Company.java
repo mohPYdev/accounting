@@ -20,6 +20,11 @@ public class Company extends Costumer implements acci {
     public void setDate_of_establishment(String date_of_establishment){this.date_of_establishment=date_of_establishment;}
     public void setEconemic_code(int econemic_code){this.econemic_code=econemic_code;}
 
+    //----
+    String infopath="/home/alireza/Desktop/accounting_project_info/companies_info/"+name;
+    String incomepath="/home/alireza/Desktop/accounting_project_info/companies_info/"+name+"/income";
+    String expencepath="/home/alireza/Desktop/accounting_project_info/companies_info/"+name+"expense";
+
     Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,String boss_name, String address, String date_of_establishment) {
         super(name, email, phone_number, activity_type, employee_names);
         this.econemic_code=econemic_code;
@@ -27,12 +32,12 @@ public class Company extends Costumer implements acci {
         this.address=address;
         this.date_of_establishment=date_of_establishment;
 
-        new File("/home/alireza/Desktop/accounting_project_info/companies_info/"+name+"/income").mkdirs();
-        new File("/home/alireza/Desktop/accounting_project_info/companies_info/"+name,"expense").mkdir();
+        new File(incomepath).mkdirs();
+        new File(incomepath,"expense").mkdir();
     }
 
     @Override
-    public void info(String infopath) throws Exception {
+    public void info() throws Exception {
         File info = new File(infopath,"info.txt");
         info.createNewFile();
         Formatter fm = new Formatter(info);
@@ -45,7 +50,7 @@ public class Company extends Costumer implements acci {
     }
 
     @Override
-    public void income(String infcomepath) {
+    public void income() {
 
     }
 }
