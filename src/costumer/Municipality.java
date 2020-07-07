@@ -66,7 +66,7 @@ public class Municipality extends Costumer implements acci{
         expence.createNewFile();
         Formatter fm = new Formatter(expence);
         //???
-        fm.format("%s %s %s %s %s %s %s ", "<<Instrument>>\n", "|date:","???????", "\t| price :", "??????", "\t| emp_name :", "??????");
+        fm.format("%s %s %s %s %s %s %s ", "<<Instrument>>\n", "|date:"," Municipality_Instrument.getDate()", "\t| price :", "??????", "\t| emp_name :", "??????");
         //???
         fm.flush();
         fm.close();
