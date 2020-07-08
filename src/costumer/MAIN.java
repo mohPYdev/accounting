@@ -13,10 +13,3 @@ public class MAIN {
     }
     // for 4 methods
 }
-
-interface acci
-{
-    public void info() throws Exception;
-    public void income()throws Exception;
-    public void expence()throws Exception;
-}
