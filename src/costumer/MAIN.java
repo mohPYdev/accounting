@@ -14,12 +14,8 @@ public class MAIN {
     // for 4 methods
     static void m1(Costumer cf) throws Exception
     {
-        if (cf.Type_Of_Costumer.equals("Municipality"))
-        {
-
             cf.info();
             cf.income();
             cf.expence();
-        }
     }
 }

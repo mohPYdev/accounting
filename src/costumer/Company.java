@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import java.util.Formatter;
 
 public class Company extends Costumer  {
+
+    Bill Bill_pointer;
+    Factor Factor_pointer;
+    Instrument Instrument_pointer;
+    Product Produck_pointer;
+    Salary Salary_pointer;
+    Receivals Receivals_pointer;
+
+
     private int econemic_code;
     private String boss_name;
     private String address;

@@ -5,13 +5,11 @@ import java.util.ArrayList;
 abstract public class Costumer {
     String name , email , phone_number , activity_type ;
     ArrayList<String> employee_names;
-    //===
 
-    public String Type_Of_Costumer;
-    public abstract void income(Receivals Municipality_Receivals)throws Exception;
-    public abstract void expence(Salary Municipality_Salary, Factor Municipality_Factor,Instrument Municipality_Instrument )throws Exception;
+    public abstract void income()throws Exception;
+    public abstract void expence()throws Exception;
     public abstract void  info() throws Exception;
-    //====
+
     Costumer(String name, String email , String phone_number , String activity_type , ArrayList<String> employee_names )
     {
         this.activity_type = activity_type;

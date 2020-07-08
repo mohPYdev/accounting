@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.Formatter;
 
 public class Municipality extends Costumer {
-    //
-    Receivals pi;
-    //
 
-    public static String Type_Of_Costumer= "Municipality";
+    Factor Factor_pointer;
+    Instrument Instrument_pointer;
+    Salary Salary_pointer;
+    Receivals Receivals_pointer;
+
+
     private String mayor_name;
     private int region;
     private int fund;
@@ -20,7 +22,7 @@ public class Municipality extends Costumer {
     public void setFund(int region){this.region=region;}
     public int getRegion(){return region;}
     public void setRegion(int region){this.region=region;}
-    //---
+
     String infopath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name;
     String incomepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"/income";
     String expencepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"expense";
@@ -47,7 +49,12 @@ public class Municipality extends Costumer {
         Instrument Municipality_Instrument = new Instrument(date_Instrument , price_Instrument , side1_name_Instrument , side2_name_Instrument);
         Factor Municipality_Factor = new Factor(ID_Factor, date_Factor ,  type_Factor , sender_Factor ,receiver_Factor , products_Factor);
         Salary Municipality_Salary=new Salary(date_Salary , price_Salary , emp_name_Salary);
-        pi=Municipality_Receivals;
+
+
+        Receivals_pointer=Municipality_Receivals;
+        Instrument_pointer=Municipality_Instrument;
+        Factor_pointer=Municipality_Factor;
+        Salary_pointer=Municipality_Salary;
     }
 
 
@@ -64,24 +71,24 @@ public class Municipality extends Costumer {
     }
 
 
-    public void income(Receivals Municipality_Receivals)throws Exception {
+    public void income()throws Exception {
         File income = new File(incomepath, "income.txt");
         income.createNewFile();
         Formatter fm = new Formatter(income);
         fm.format("%s %i","found:",fund);
-        fm.format("%s %s %s %s %s %s %s %s %i", "\n\n<<Receivals>>\n", "|ID:", Municipality_Receivals.getID(), "\t| Date :", Municipality_Receivals.getDate(), "\t| Reason :", Municipality_Receivals.getReason(),"\t| cost:", Municipality_Receivals.getCost());
+        fm.format("%s %s %s %s %s %s %s %s %i", "\n\n<<Receivals>>\n", "|ID:", Receivals_pointer.getID(), "\t| Date :", Receivals_pointer.getDate(), "\t| Reason :", Receivals_pointer.getReason(),"\t| cost:", Receivals_pointer.getCost());
         fm.flush();
         fm.close();
     }
 
 
-    public void expence(Salary Municipality_Salary, Factor Municipality_Factor,Instrument Municipality_Instrument )throws Exception {
+    public void expence( )throws Exception {
         File expence = new File(expencepath, "expence.txt");
         expence.createNewFile();
         Formatter fm = new Formatter(expence);
-        fm.format("%s %s %s %s %s %s %s %s %s", "<<Instrument>>\n", "|date:",Municipality_Instrument.getDate(), "\t| price :", Municipality_Instrument.getPrice(), "\t| Side1 name :", Municipality_Instrument.getSide1_name(),"\t| Side2 name :", Municipality_Instrument.getSide2_name());
-        fm.format("%s %s %s %s %s %s %s", "\n\n<<Salary>>\n", "|date:",Municipality_Salary.getDate(), "\t| price :", Municipality_Salary.getPrice(), "\t| Emp name :", Municipality_Salary.getEmp_name());
-        fm.format("%s %s %s %s %s %s %s %s %s", "\n\n<<Instrument>>\n", "|ID:",Municipality_Factor.ID, "\t| date :", Municipality_Factor.date, "\t| receiver :", Municipality_Factor.receiver,"\t| sender :", Municipality_Factor.sender);
+        fm.format("%s %s %s %s %s %s %s %s %s", "<<Instrument>>\n", "|date:",Instrument_pointer.getDate(), "\t| price :", Instrument_pointer.getPrice(), "\t| Side1 name :", Instrument_pointer.getSide1_name(),"\t| Side2 name :", Instrument_pointer.getSide2_name());
+        fm.format("%s %s %s %s %s %s %s", "\n\n<<Salary>>\n", "|date:",Salary_pointer.getDate(), "\t| price :", Salary_pointer.getPrice(), "\t| Emp name :", Salary_pointer.getEmp_name());
+        fm.format("%s %s %s %s %s %s %s %s %s", "\n\n<<Instrument>>\n", "|ID:", Factor_pointer.ID, "\t| date :", Factor_pointer.date, "\t| receiver :", Factor_pointer.receiver,"\t| sender :", Factor_pointer.sender);
         fm.flush();
         fm.close();
     }
