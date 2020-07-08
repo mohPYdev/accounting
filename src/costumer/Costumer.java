@@ -6,6 +6,7 @@ abstract public class Costumer {
     String name , email , phone_number , activity_type ;
     ArrayList<String> employee_names;
     //===
+
     public String Type_Of_Costumer;
     public abstract void income(Receivals Municipality_Receivals)throws Exception;
     public abstract void expence(Salary Municipality_Salary, Factor Municipality_Factor,Instrument Municipality_Instrument )throws Exception;

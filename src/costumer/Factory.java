@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-public class Factory extends Costumer implements acci {
+public class Factory extends Costumer  {
     private int econemic_code;
     private int equities;
     private String boss_name;
@@ -41,7 +41,7 @@ public class Factory extends Costumer implements acci {
     }
 
 
-    @Override
+
     public void info() throws Exception {
         File info = new File(infopath,"info.txt");
         info.createNewFile();
@@ -53,12 +53,12 @@ public class Factory extends Costumer implements acci {
         fm.close();
     }
 
-    @Override
+
     public void income() throws Exception {
 
     }
 
-    @Override
+
     public void expence() throws Exception {
 
     }

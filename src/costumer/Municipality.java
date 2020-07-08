@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Formatter;
 
 public class Municipality extends Costumer {
+    //
+    Receivals pi;
+    //
 
     public static String Type_Of_Costumer= "Municipality";
     private String mayor_name;
@@ -44,7 +47,7 @@ public class Municipality extends Costumer {
         Instrument Municipality_Instrument = new Instrument(date_Instrument , price_Instrument , side1_name_Instrument , side2_name_Instrument);
         Factor Municipality_Factor = new Factor(ID_Factor, date_Factor ,  type_Factor , sender_Factor ,receiver_Factor , products_Factor);
         Salary Municipality_Salary=new Salary(date_Salary , price_Salary , emp_name_Salary);
-
+        pi=Municipality_Receivals;
     }
 
 
