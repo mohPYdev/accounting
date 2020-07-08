@@ -6,14 +6,17 @@ import java.util.Formatter;
 
 public class Municipality extends Costumer {
 
+    public static String Type_Of_Costumer= "Municipality";
     private String mayor_name;
     private int region;
+    private int fund;
 
     public String getMayor_name(){return mayor_name;}
-    public int getRegion(){return region;}
+    public int getFund(){return region;}
     public void setMayor_name(String mayor_name){this.mayor_name=mayor_name;}
+    public void setFund(int region){this.region=region;}
+    public int getRegion(){return region;}
     public void setRegion(int region){this.region=region;}
-
     //---
     String infopath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name;
     String incomepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"/income";
@@ -23,7 +26,8 @@ public class Municipality extends Costumer {
             , String activity_type, ArrayList<String> employee_names,String mayor_name,int region,
                  String date_Instrument , String price_Instrument , String side1_name_Instrument , String side2_name_Instrument,
                  String ID_Factor, String date_Factor , Factor.types type_Factor , String sender_Factor ,String receiver_Factor , ArrayList<Product> products_Factor
-            ,String date_Salary , String price_Salary , String emp_name_Salary,String ID_Receivals, String date_Receivals , String reason_Receivals ,int cost_Receivals) {
+            ,String date_Salary , String price_Salary , String emp_name_Salary,String ID_Receivals, String date_Receivals , String reason_Receivals ,int cost_Receivals,
+                 int fund) {
 
         super(name, email, phone_number, activity_type, employee_names);
 
@@ -34,6 +38,7 @@ public class Municipality extends Costumer {
         new File(incomepath,"expense").mkdir();
 
         //income:
+        this.fund=fund;
         Receivals Municipality_Receivals=new Receivals( ID_Receivals, date_Receivals ,  reason_Receivals , cost_Receivals);
         //expence:
         Instrument Municipality_Instrument = new Instrument(date_Instrument , price_Instrument , side1_name_Instrument , side2_name_Instrument);
@@ -60,7 +65,8 @@ public class Municipality extends Costumer {
         File income = new File(incomepath, "income.txt");
         income.createNewFile();
         Formatter fm = new Formatter(income);
-        fm.format("%s %s %s %s %s %s %s %s %i", "<<Receivals>>\n", "|ID:", Municipality_Receivals.getID(), "\t| Date :", Municipality_Receivals.getDate(), "\t| Reason :", Municipality_Receivals.getReason(),"\t| cost:", Municipality_Receivals.getCost());
+        fm.format("%s %i","found:",fund);
+        fm.format("%s %s %s %s %s %s %s %s %i", "\n\n<<Receivals>>\n", "|ID:", Municipality_Receivals.getID(), "\t| Date :", Municipality_Receivals.getDate(), "\t| Reason :", Municipality_Receivals.getReason(),"\t| cost:", Municipality_Receivals.getCost());
         fm.flush();
         fm.close();
     }
