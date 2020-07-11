@@ -38,7 +38,8 @@ public class Company extends Costumer  {
     */
 
 
-    Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,String boss_name, String address, String date_of_establishment) {
+    Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,
+            String boss_name, String address, String date_of_establishment) {
         super(name, email, phone_number, activity_type, employee_names);
         this.econemic_code=econemic_code;
         this.boss_name=boss_name;
