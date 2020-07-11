@@ -57,8 +57,8 @@ public class Municipality extends Costumer {
         Salary_pointer=Municipality_Salary;
     }
 
-
-    public void info() throws Exception {
+    @Override
+    public void info_write() throws Exception {
         File info = new File(infopath, "info.txt");
         info.createNewFile();
         Formatter fm = new Formatter(info);
@@ -70,8 +70,8 @@ public class Municipality extends Costumer {
 
     }
 
-
-    public void income()throws Exception {
+    @Override
+    public void income_write()throws Exception {
         File income = new File(incomepath, "income.txt");
         income.createNewFile();
         Formatter fm = new Formatter(income);
@@ -81,8 +81,8 @@ public class Municipality extends Costumer {
         fm.close();
     }
 
-
-    public void expence( )throws Exception {
+    @Override
+    public void expence_write( )throws Exception {
         File expence = new File(expencepath, "expence.txt");
         expence.createNewFile();
         Formatter fm = new Formatter(expence);
@@ -92,4 +92,50 @@ public class Municipality extends Costumer {
         fm.flush();
         fm.close();
     }
+
+    @Override
+    public void income_read() throws Exception {
+
+    }
+
+    @Override
+    public void expence_read() throws Exception {
+
+    }
+
+    @Override
+    public void info_read() throws Exception {
+
+    }
+
+    @Override
+    public void income_write_obj() throws Exception {
+
+    }
+
+    @Override
+    public void expence_write_obj() throws Exception {
+
+    }
+
+    @Override
+    public void info_write_obj() throws Exception {
+
+    }
+
+    @Override
+    public void income_read_obj() throws Exception {
+
+    }
+
+    @Override
+    public void expence_read_obj() throws Exception {
+
+    }
+
+    @Override
+    public void info_read_obj() throws Exception {
+
+    }
+
 }

@@ -46,7 +46,7 @@ public class Company extends Costumer  {
     }
 
 
-    public void info() throws Exception {
+    public void info_write() throws Exception {
         File info = new File(infopath,"info.txt");
         info.createNewFile();
         Formatter fm = new Formatter(info);
@@ -59,12 +59,58 @@ public class Company extends Costumer  {
     }
 
 
-    public void income() throws Exception {
+    public void income_write() throws Exception {
 
     }
 
 
-    public void expence() throws Exception {
+    public void expence_write() throws Exception {
 
     }
+
+    @Override
+    public void income_read() throws Exception {
+
+    }
+
+    @Override
+    public void expence_read() throws Exception {
+
+    }
+
+    @Override
+    public void info_read() throws Exception {
+
+    }
+
+    @Override
+    public void income_write_obj() throws Exception {
+
+    }
+
+    @Override
+    public void expence_write_obj() throws Exception {
+
+    }
+
+    @Override
+    public void info_write_obj() throws Exception {
+
+    }
+
+    @Override
+    public void income_read_obj() throws Exception {
+
+    }
+
+    @Override
+    public void expence_read_obj() throws Exception {
+
+    }
+
+    @Override
+    public void info_read_obj() throws Exception {
+
+    }
+
 }
