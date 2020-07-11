@@ -75,7 +75,7 @@ public class Municipality extends Costumer {
         File income = new File(incomepath, "income.txt");
         income.createNewFile();
         Formatter fm = new Formatter(income);
-        fm.format("%s %i","found:",fund);
+        fm.format("%s %i","<<fund>>\n",fund);
         fm.format("%s %s %s %s %s %s %s %s %i", "\n\n<<Receivals>>\n", "|ID:", Receivals_pointer.getID(), "\t| Date :", Receivals_pointer.getDate(), "\t| Reason :", Receivals_pointer.getReason(),"\t| cost:", Receivals_pointer.getCost());
         fm.flush();
         fm.close();
@@ -88,7 +88,7 @@ public class Municipality extends Costumer {
         Formatter fm = new Formatter(expence);
         fm.format("%s %s %s %s %s %s %s %s %s", "<<Instrument>>\n", "|date:",Instrument_pointer.getDate(), "\t| price :", Instrument_pointer.getPrice(), "\t| Side1 name :", Instrument_pointer.getSide1_name(),"\t| Side2 name :", Instrument_pointer.getSide2_name());
         fm.format("%s %s %s %s %s %s %s", "\n\n<<Salary>>\n", "|date:",Salary_pointer.getDate(), "\t| price :", Salary_pointer.getPrice(), "\t| Emp name :", Salary_pointer.getEmp_name());
-        fm.format("%s %s %s %s %s %s %s %s %s", "\n\n<<Instrument>>\n", "|ID:", Factor_pointer.ID, "\t| date :", Factor_pointer.date, "\t| receiver :", Factor_pointer.receiver,"\t| sender :", Factor_pointer.sender);
+        fm.format("%s %s %s %s %s %s %s %s %s", "\n\n<<Factor>>\n", "|ID:", Factor_pointer.ID, "\t| date :", Factor_pointer.date, "\t| receiver :", Factor_pointer.receiver,"\t| sender :", Factor_pointer.sender);
         fm.flush();
         fm.close();
     }
