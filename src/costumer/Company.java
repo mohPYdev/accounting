@@ -33,6 +33,10 @@ public class Company extends Costumer  {
     String infopath="/home/alireza/Desktop/accounting_project_info/companies_info/"+name;
     String incomepath="/home/alireza/Desktop/accounting_project_info/companies_info/"+name+"/income";
     String expencepath="/home/alireza/Desktop/accounting_project_info/companies_info/"+name+"expense";
+    /*
+  آدرسهایی که فرم بالا دارن  موقتی ان چون تو واسط گرافیکی کاربر آدرس رو انتخاب میکنه و اون آدرس باید جایگزین این بشه
+    */
+
 
     Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,String boss_name, String address, String date_of_establishment) {
         super(name, email, phone_number, activity_type, employee_names);
@@ -70,17 +74,17 @@ public class Company extends Costumer  {
 
     @Override
     public void income_read() throws Exception {
-
+    //after create GUI
     }
 
     @Override
     public void expence_read() throws Exception {
-
+        //after create GUI
     }
 
     @Override
     public void info_read() throws Exception {
-
+//after create GUI
     }
 
     @Override
@@ -100,17 +104,17 @@ public class Company extends Costumer  {
 
     @Override
     public void income_read_obj() throws Exception {
-
+//after create GUI
     }
 
     @Override
     public void expence_read_obj() throws Exception {
-
+//after create GUI
     }
 
     @Override
     public void info_read_obj() throws Exception {
-
+//after create GUI
     }
 
 }

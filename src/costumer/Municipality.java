@@ -26,6 +26,9 @@ public class Municipality extends Costumer {
     String infopath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name;
     String incomepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"/income";
     String expencepath="/home/alireza/Desktop/accounting_project_info/municipalities_info/"+name+"expense";
+    /*
+            آدرسهایی که فرم بالا دارن . موقتی ان چون تو واسط گرافیکی کاربر آدرس رو انتخاب میکنه و اون آدرس باید جایگزین این بشه
+    */
 
     Municipality(String name, String email, String phone_number
             , String activity_type, ArrayList<String> employee_names,String mayor_name,int region,
@@ -95,17 +98,17 @@ public class Municipality extends Costumer {
 
     @Override
     public void income_read() throws Exception {
-
+    //after create GUI
     }
 
     @Override
     public void expence_read() throws Exception {
-
+    //after create GUI
     }
 
     @Override
     public void info_read() throws Exception {
-
+    //after create GUI
     }
 
     @Override
@@ -125,17 +128,17 @@ public class Municipality extends Costumer {
 
     @Override
     public void income_read_obj() throws Exception {
-
+    //after create GUI
     }
 
     @Override
     public void expence_read_obj() throws Exception {
-
+    //after create GUI
     }
 
     @Override
-    public void info_read_obj() throws Exception {
-
+    public void info_read_obj() throws Exception  {
+    //after create GUI
     }
 
 }
