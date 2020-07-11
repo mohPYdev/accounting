@@ -12,10 +12,8 @@ public class MAIN {
 
     }
     // for 4 methods
-    static void m1(Costumer cf) throws Exception
+    static <T extends  Costumer>void m1(T cf) throws Exception
     {
-            cf.info();
-            cf.income();
-            cf.expence();
+
     }
 }
