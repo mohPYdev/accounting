@@ -1,45 +1,54 @@
 package costumer;
 
-import java.io.File;
+import java.io.*;
 
 public class MAIN {
     public static void main(String[] args) {
 
-        new File("/home/alireza/Desktop","accounting_project_info").mkdir();
-        new File("/home/alireza/Desktop/accounting_project_info","companies_info").mkdir();
-        new File("/home/alireza/Desktop/accounting_project_info","municipalities_info").mkdir();
-        new File("/home/alireza/Desktop/accounting_project_info","factories_info").mkdir();
-        /*
-        آدرسهایی که فرم بالا دارن . موقتی ان چون تو واسط گرافیکی کاربر آدرس رو انتخاب میکنه و اون آدرس باید جایگزین این بشه
-         */
 
     }
     // for 4 methods
-    static <T extends  Costumer>void READ_OBJECT(T cf) throws Exception
+    static <T extends  Costumer>T READ_OBJECT(File file) throws Exception
     {
-        cf.info_read_obj();
-        cf.income_read_obj();
-        cf.expence_read_obj();
+        FileInputStream fin = new FileInputStream(file);
+        ObjectInputStream oin = new ObjectInputStream(fin);
+        T obj = (T)oin.readObject();
+        fin.close();
+        oin.close();
+        return obj;
     }
 
-    static <T extends  Costumer>void WRITE_OBJECT(T cf) throws Exception
+    static <T extends  Costumer>void WRITE_OBJECT(File file , T cf) throws Exception
     {
-        cf.info_write_obj();
-        cf.income_write_obj();
-        cf.expence_write_obj();
+        FileOutputStream fout = new FileOutputStream(file);
+        ObjectOutputStream out = new ObjectOutputStream(fout);
+        out.writeObject(cf);
+        fout.close();
+        out.close();
     }
 
-    static <T extends  Costumer>void READ(T cf) throws Exception
+    static <T extends  Costumer> String READ(File file) throws Exception
     {
-        cf.info_read();
-        cf.income_read();
-        cf.expence_read();
+        FileReader fileReader = new FileReader(file);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
+            }
+            return sb.toString();
+        }
     }
 
-    static <T extends  Costumer>void WRITE(T cf) throws Exception
+
+    static void WRITE(File file , String text) throws Exception
     {
-        cf.info_write_obj();
-        cf.income_write_obj();
-        cf.expence_write_obj();
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(text);
+        fileWriter.close();
     }
 }
