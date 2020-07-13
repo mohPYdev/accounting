@@ -1,10 +1,15 @@
 package costumer;
 
+import graphic.Main;
+import graphic.User_Pass;
+
+import java.awt.desktop.UserSessionEvent;
 import java.io.*;
 
 public class MAIN {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
+//        System.out.println(User_Pass.login("mohama" , "1379"));
 
     }
     // for 4 methods
@@ -47,8 +52,8 @@ public class MAIN {
 
     public static void WRITE(File file , String text) throws Exception
     {
-        FileWriter fileWriter = new FileWriter(file);
-        fileWriter.write(text);
+        FileWriter fileWriter = new FileWriter(file , true);
+        fileWriter.append(text);
         fileWriter.close();
     }
 }

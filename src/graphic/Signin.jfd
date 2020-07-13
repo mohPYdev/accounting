@@ -4,11 +4,12 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:93:p, par l {seq l {par l {comp label1:::p:183:p, comp label3:::p:183:p}, space :::x, par l {comp textField1::t:p:213:p, comp textField2::t:p:213:p}}, seq {comp label5:::p:263:p, space s:::p, comp textField3:::p:213:p, space :0:0:x}}, space ::102:x}, seq {par l {seq {space :p:125:p, comp label4:::p:212:p, space :p:28:p, comp button2:::p:118:p}, seq l {space :p:245:p, comp button1:::p:152:p}}, space ::206:x}, seq t {space ::240:x, comp label2:::p:226:p, space :p:223:p}}"
-			"$verticalGroup": "par l {seq t {space :p:26:p, comp label2:::p:82:p, space u:::p, par b {comp label1::b:p:42:p, comp textField1::b::42:x}, space :p:33:p, par b {comp label3::b:p:42:p, comp textField2::b:p:42:p}, space :p:34:p, par b {comp label5::b:p:42:p, comp textField3::b:p:42:p}, space :p:49:p, comp button1:::p:42:p, space :p:37:p, par b {comp label4::b:p::p, comp button2::b:p::p}, space :p:39:p}}"
+			"$horizontalGroup": "par l {seq {space :p:93:p, par l {seq {comp label1:::p:183:p, space :0:0:x}, seq {par l {comp label3::l:p:183:p, comp label5:::p:263:p}, space ::83:x}}, space :p:22:p, par t {par l:::p {comp textField1::::213:x, comp passwordField1::::213:x}, comp passwordField2:::p:213:p}, space :p:65:p}, seq {par l {seq {space :p:160:p, comp label4:::p:212:p, space :p:41:p, comp button2:::p:118:p}, seq l {space :p:286:p, comp button1:::p:152:p}}, space ::208:x}, seq t {space ::166:x, par l {seq t {comp label2:::p:226:p, space :p:246:p}, seq t {comp label6:::p:558:p, space :::p}}}}"
+			"$verticalGroup": "par l {seq t {space :p:26:p, comp label2:::p:82:p, space :::p, par b {comp label1::b:p:42:p, comp textField1::b::42:x}, space :p:31:p, par l:::p {comp label3::::42:x, comp passwordField1::::42:x}, space :p:34:p, par b {comp label5::b:p:42:p, comp passwordField2::b:p:42:p}, space :p:51:p, comp button1:::p:42:p, space ::29:x, comp label6:::p:52:p, space u:::p, par b {comp label4::b:p::p, comp button2::b:p::p}, space :p:39:p}}"
 		} ) {
 			name: "this"
 			"title": "Accounting"
+			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Username : "
@@ -28,9 +29,6 @@ new FormModel {
 				"text": "Password :"
 				"font": #SwingDerivedFont0
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
-			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "sign in "
@@ -49,15 +47,22 @@ new FormModel {
 				"text": "confirm Password :"
 				"font": #SwingDerivedFont0
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField3"
-			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "already have an account ?"
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 10, false )
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField1"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField2"
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 461, 377 )
+			"size": new java.awt.Dimension( 494, 410 )
 			"location": new java.awt.Point( 0, 0 )
 		} )
 	}

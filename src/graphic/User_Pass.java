@@ -1,5 +1,7 @@
 package graphic;
 
+import costumer.MAIN;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -7,82 +9,69 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class User_Pass {
+public  class User_Pass {
 
- File file = new File(".","Usrename_and_Password");//please check this path
+     static File file = new File("User.txt");
 
-  //=======================================================
-  boolean Exist_Username(String Username) throws Exception{
-        boolean a=false;
-        FileReader fr = new FileReader(file);
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = br.readLine();
-            String [] up;//up:username and password
-            up=line.split(" ");//We use this method becouse when write a usre info in line 62 we write a space between username and password
-            while (line != null) {
-                if(up[0].equals(Username)) {//up[0] point to username and up[1] point to password
-                    a = true;
-                    break;}
-                line = br.readLine();
-                up=line.split(" ");//We use this method becouse when write a usre info in line 62 we a space between username and password
-            }
-        }
-        return a;
-    }
     //=======================================================
-    boolean True_Password(String Username,String Password)throws Exception
-    {
-        boolean a=false;
-        FileReader fr = new FileReader(file);
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = br.readLine();
-            String [] up;//up:username and password
-            up=line.split(" ");//We use this method becouse when write a usre info in line 62 we write a space between username and password
-            while (line != null) {
-                if(up[0].equals(Username) && up[1].equals(Username) ) {//up[0] point to username and up[1] point to password
-                    a = true;
-                    break;}
-                line = br.readLine();
-                up=line.split(" ");//We use this method becouse when write a usre info in line 62 we  a space between username and password
+    public static boolean Exist_Username(String Username) throws Exception {
+        if(file.exists()) {
+            boolean exits = false;
+            FileReader fr = new FileReader(file);
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line = br.readLine();
+                String[] up;       //up:username and password
+                while (line != null) {
+                    up = line.split(" ");
+                    if (up[0].equals(Username)) {            //up[0] point to username and up[1] point to password
+                        exits = true;
+                        break;
+                    }
+                    line = br.readLine();
+                }
             }
-        }
-        return a;
-    }
-    //=======================================================
-    boolean Creat_Account(String Sug_Username, String Sug_Pass)throws Exception
-    {
-        if(!Exist_Username(Sug_Username))
-        {
-            JOptionPane.showMessageDialog(new JFrame(),"this usrename is unvalid");
-            return false;
+            return exits;
         }
         else
         {
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(Sug_Username.strip()+" "+Sug_Pass.strip());
-            fileWriter.close();
+            file.createNewFile();
+            return Exist_Username(Username);
+        }
+    }
 
-            JOptionPane.showMessageDialog(new JFrame(),"this account created");
+    //=======================================================
+    static public boolean create_Account(String Sug_Username, String Sug_Pass) throws Exception {
+        if (Exist_Username(Sug_Username)) {
+//            JOptionPane.showMessageDialog(new JFrame(), "this usrename is unvalid");
+            return false;
+        } else {
+            MAIN.WRITE(file , Sug_Username + " " + Sug_Pass + "\n");
+//            JOptionPane.showMessageDialog(new JFrame(), "this account created");
             return true;
         }
     }
-    //=======================================================
-    boolean Login(String Username,String Password) throws Exception
+
+    static public boolean login(String Username,String Password)throws Exception
     {
-        if(Exist_Username(Username)) {
-            if (True_Password(Username, Password)) {
-                 JOptionPane.showMessageDialog(new JFrame(),"welcome"+Username);
-                return true;
-            } else {
-                 JOptionPane.showMessageDialog(new JFrame(),"password is wrong");
-                return false;
+        if(file.exists())
+          {  boolean a=false;
+            FileReader fr = new FileReader(file);
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line = br.readLine();
+                String [] up;       //up:username and password
+                while (line != null) {
+                    up=line.split(" ");
+                    if(up[0].equals(Username) && up[1].equals(Password) ) {     //up[0] points to username and up[1] points to password
+                        a = true;
+                        break;
+                    }
+                    line = br.readLine();
+                }
             }
-        }
+            return a;
+          }
         else
-        {
-             JOptionPane.showMessageDialog(new JFrame(),"this account doseent exist");
             return false;
-        }
     }
     //=======================================================
 }
