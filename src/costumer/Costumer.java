@@ -1,24 +1,12 @@
 package costumer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-abstract public class Costumer {
+abstract public class Costumer implements Serializable {
     String name , email , phone_number , activity_type ;
     ArrayList<String> employee_names;
-//=============================================================
-    public abstract void income_write()throws Exception;
-    public abstract void expence_write()throws Exception;
-    public abstract void  info_write() throws Exception;
-    public abstract void income_read()throws Exception;
-    public abstract void expence_read()throws Exception;
-    public abstract void  info_read() throws Exception;
-    public abstract void income_write_obj()throws Exception;
-    public abstract void expence_write_obj()throws Exception;
-    public abstract void  info_write_obj() throws Exception;
-    public abstract void income_read_obj()throws Exception;
-    public abstract void expence_read_obj()throws Exception;
-    public abstract void  info_read_obj() throws Exception;
-//=============================================================
+
     Costumer(String name, String email , String phone_number , String activity_type , ArrayList<String> employee_names )
     {
         this.activity_type = activity_type;
