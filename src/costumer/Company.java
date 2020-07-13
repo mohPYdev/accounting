@@ -10,7 +10,7 @@ public class Company extends Costumer  {
     ArrayList<Project> projects = new ArrayList<>();
     ArrayList<Salary> salaries = new ArrayList<>();
     private int other_expence;
-
+    private int investment;
     private int econemic_code;
     private String boss_name;
     private String address;
@@ -18,13 +18,14 @@ public class Company extends Costumer  {
 
 
     Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,
-            String boss_name, String address, String date_of_establishment,int other_expence) {
+            String boss_name, String address, String date_of_establishment,int other_expence , int investment) {
         super(name, email, phone_number, activity_type, employee_names);
         this.econemic_code=econemic_code;
         this.boss_name=boss_name;
         this.address=address;
         this.date_of_establishment=date_of_establishment;
         this.other_expence=other_expence;
+        this.investment = investment;
     }
 
     public String getBoss_name(){return boss_name;}
@@ -36,6 +37,7 @@ public class Company extends Costumer  {
     public int getOther_expence() {
         return other_expence;
     }
+    public int getInvestment(){return investment;}
 
     public Bill getBill(String id) {
         for(Bill bill : this.bills)
