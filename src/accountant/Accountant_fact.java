@@ -1,18 +1,19 @@
 package accountant;
 
 public class Accountant_fact implements Computation{
+
     @Override
-    public double costComputer() {
+    public double costComputer(String path) {
         return 0;
     }
 
     @Override
-    public double profitComputer() {
+    public double profitComputer(String path) {
         return 0;
     }
 
     @Override
-    public double incomeComputer() {
+    public double incomeComputer(String path) {
         return 0;
     }
 }

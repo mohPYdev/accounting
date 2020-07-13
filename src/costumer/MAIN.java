@@ -8,7 +8,7 @@ public class MAIN {
 
     }
     // for 4 methods
-    static <T extends  Costumer>T READ_OBJECT(File file) throws Exception
+    public static <T>T READ_OBJECT(File file) throws Exception
     {
         FileInputStream fin = new FileInputStream(file);
         ObjectInputStream oin = new ObjectInputStream(fin);
@@ -18,7 +18,7 @@ public class MAIN {
         return obj;
     }
 
-    static <T extends  Costumer>void WRITE_OBJECT(File file , T cf) throws Exception
+    public static <T extends  Costumer>void WRITE_OBJECT(File file , T cf) throws Exception
     {
         FileOutputStream fout = new FileOutputStream(file);
         ObjectOutputStream out = new ObjectOutputStream(fout);
@@ -27,7 +27,7 @@ public class MAIN {
         out.close();
     }
 
-    static <T extends  Costumer> String READ(File file) throws Exception
+    public static <T extends  Costumer> String READ(File file) throws Exception
     {
         FileReader fileReader = new FileReader(file);
 
@@ -45,7 +45,7 @@ public class MAIN {
     }
 
 
-    static void WRITE(File file , String text) throws Exception
+    public static void WRITE(File file , String text) throws Exception
     {
         FileWriter fileWriter = new FileWriter(file);
         fileWriter.write(text);

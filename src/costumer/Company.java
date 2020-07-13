@@ -15,6 +15,7 @@ public class Company extends Costumer  {
     private String boss_name;
     private String address;
     private String date_of_establishment;
+    private String save_path;          // the path that the user wants to save the info of the company.
 
 
     Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,
@@ -90,6 +91,9 @@ public class Company extends Costumer  {
         super.add_employee(salary.emp_name);
     }
 
+    public void setSave_path(String save_path) {
+        this.save_path = save_path;
+    }
 
 
 
@@ -102,7 +106,12 @@ public class Company extends Costumer  {
 
 
 
-//    @Override
+
+
+
+
+
+    //    @Override
 //    public void info_write() throws Exception {
 //        File info = new File(infopath,"info.txt");
 //        info.createNewFile();
