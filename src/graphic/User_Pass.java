@@ -18,9 +18,9 @@ public class User_Pass {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
             String [] up;//up:username and password
-            up=line.split(" ");//We use this method becouse when write a usre info in line 62 we a space between username and password
+            up=line.split(" ");//We use this method becouse when write a usre info in line 62 we write a space between username and password
             while (line != null) {
-                if(up[0].contains(Username)) {//up[0] point to username and up[1] point to password
+                if(up[0].equals(Username)) {//up[0] point to username and up[1] point to password
                     a = true;
                     break;}
                 line = br.readLine();
@@ -37,13 +37,13 @@ public class User_Pass {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line = br.readLine();
             String [] up;//up:username and password
-            up=line.split(" ");//We use this method becouse when write a usre info in line 62 we a space between username and password
+            up=line.split(" ");//We use this method becouse when write a usre info in line 62 we write a space between username and password
             while (line != null) {
-                if(up[0].contains(Username) && up[1].contains(Username) ) {//up[0] point to username and up[1] point to password
+                if(up[0].equals(Username) && up[1].equals(Username) ) {//up[0] point to username and up[1] point to password
                     a = true;
                     break;}
                 line = br.readLine();
-                up=line.split(" ");//We use this method becouse when write a usre info in line 62 we a space between username and password
+                up=line.split(" ");//We use this method becouse when write a usre info in line 62 we  a space between username and password
             }
         }
         return a;
