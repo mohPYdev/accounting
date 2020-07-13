@@ -19,13 +19,13 @@ public class Factory extends Costumer  {
     private String boss_name;
     private String address;
     private String date_of_establishment;
-    private int fix;
-    private int tax;
+    private double fix;
+    private double tax;
 
 
 
     Factory(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names
-            , int econemic_code,int equities,String boss_name, String address, String date_of_establishment, int fix,int tax) {
+            , int econemic_code,int equities,String boss_name, String address, String date_of_establishment, double fix,double tax) {
         super(name, email, phone_number, activity_type, employee_names);
         this.econemic_code=econemic_code;
         this.equities=equities;
@@ -44,8 +44,8 @@ public class Factory extends Costumer  {
     }
 
     public int getEquities(){return equities;}
-    public int getFix(){return fix;}
-    public int getTax(){return tax;}
+    public double getFix(){return fix;}
+    public double getTax(){return tax;}
 
     public Receivals getReceivals_pointer() {
         return Receivals_pointer;
@@ -77,8 +77,8 @@ public class Factory extends Costumer  {
     public void setDate_of_establishment(String date_of_establishment){this.date_of_establishment=date_of_establishment;}
     public void setEconemic_code(int econemic_code){this.econemic_code=econemic_code;}
     public void setEquities(int equities){this.equities=equities;}
-    public void setTax(int tax){this.tax=tax;}
-    public void setFix(int fix){this.fix=fix;}
+    public void setTax(double tax){this.tax=tax;}
+    public void setFix(double fix){this.fix=fix;}
 
     public void addExpenseFactor(Factor factor){ this.factors_expense.add(factor);}
     public void addIncomeFactor(Factor factor){ this.factors_income.add(factor);}

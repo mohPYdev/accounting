@@ -20,4 +20,14 @@ public class Factor {
         this.products = products;
     }
 
+
+    public double getCost(){
+        double cost = 0;
+        for(Product product : products)
+        {
+            cost += Double.parseDouble(product.getPrice());
+        }
+        return cost;
+    }
+
 }

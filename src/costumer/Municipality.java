@@ -10,7 +10,7 @@ public class Municipality extends Costumer  {
     ArrayList<Factor> factors = new ArrayList<>();
     ArrayList<Instrument> instruments = new ArrayList<>();
     ArrayList<Salary> salaries = new ArrayList<>();
-    private int fund;
+    private double fund;
 
 
     private String mayor_name;
@@ -20,7 +20,7 @@ public class Municipality extends Costumer  {
 
 
     Municipality(String name, String email, String phone_number
-            , String activity_type, ArrayList<String> employee_names,String mayor_name,int region, int fund , Receivals Receivals_pointer) {
+            , String activity_type, ArrayList<String> employee_names,String mayor_name,int region, double fund , Receivals Receivals_pointer ) {
 
         super(name, email, phone_number, activity_type, employee_names);
 
@@ -31,9 +31,9 @@ public class Municipality extends Costumer  {
     }
 
     public String getMayor_name(){return mayor_name;}
-    public int getFund(){return region;}
+    public double getFund(){return fund;}
     public void setMayor_name(String mayor_name){this.mayor_name=mayor_name;}
-    public void setFund(int region){this.region=region;}
+    public void setFund(double fund){this.fund=fund;}
     public int getRegion(){return region;}
     public void setRegion(int region){this.region=region;}
 

@@ -1,7 +1,7 @@
 package accountant;
 
 public interface Computation {
-    public double costComputer(String path);
-    public double profitComputer(String path);
-    public double incomeComputer(String path);
+    public double costComputer(String path) throws InterruptedException;
+    public double profitComputer(String path) throws InterruptedException;
+    public double incomeComputer(String path) throws InterruptedException;
 }

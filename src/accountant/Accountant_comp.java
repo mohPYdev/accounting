@@ -1,10 +1,8 @@
 package accountant;
 
-import com.sun.tools.javac.Main;
 import costumer.*;
-
 import java.io.File;
-import java.lang.reflect.Field;
+
 
 public class Accountant_comp implements Computation {
 
@@ -19,12 +17,12 @@ public class Accountant_comp implements Computation {
 
 
     @Override
-    public double costComputer(String path) {
+    synchronized public double costComputer(String path) throws InterruptedException {
         this.cost = 0;
 
 // SALARIES
 
-        new Thread(new Runnable() {
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 File file = new File(path + "/" + comp_name + "/Salaries");
@@ -39,10 +37,10 @@ public class Accountant_comp implements Computation {
                     }
                 }
             }
-        }).start();
+        });
 
 // BILLS
-        new Thread(new Runnable() {
+        Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 File file = new File(path + "/" + comp_name + "/Bills");
@@ -56,11 +54,11 @@ public class Accountant_comp implements Computation {
                     }
                 }
             }
-        }).start();
+        });
 
 
 // OTHERS
-        new Thread(new Runnable() {
+        Thread t3 = new Thread(new Runnable() {
             @Override
             public void run() {
                 File file = new File(path + "/" + comp_name +"/Attributes/other_expenses.txt");
@@ -70,23 +68,30 @@ public class Accountant_comp implements Computation {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t1.join();
+        t2.join();
+        t3.join();
 
         return cost;
     }
 
     @Override
-    public double profitComputer(String path) {
+    public double profitComputer(String path) throws InterruptedException {
          return 100 * ((incomeComputer(path) - costComputer(path)) / incomeComputer(path));
     }
 
     @Override
-    public double incomeComputer(String path) {
+    public double incomeComputer(String path) throws InterruptedException {
         this.income = 0;
 
 // PROJECTS
 
-        new Thread(new Runnable() {
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 File file = new File(path + "/" + comp_name + "/Projects");
@@ -101,10 +106,10 @@ public class Accountant_comp implements Computation {
                     }
                 }
             }
-        }).start();
+        });
 
 // OTHERS
-        new Thread(new Runnable() {
+        Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 File file = new File(path + "/" + comp_name +"/Attributes/investments.txt");
@@ -114,7 +119,12 @@ public class Accountant_comp implements Computation {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
+
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
 
         return income;
     }
