@@ -10,7 +10,7 @@ public class Accountant_comp implements Computation {
     private double cost = 0;
     private double income = 0;
 
-    Accountant_comp(String Accountant_id , String comp_name){
+    public Accountant_comp(String Accountant_id, String comp_name){
         this.Accountant_id = Accountant_id;
         this.comp_name = comp_name;
     }

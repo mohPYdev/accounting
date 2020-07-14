@@ -1,0 +1,23 @@
+JFDML JFormDesigner: "6.0.0.0.84" Java: "1.8.0_112" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp fileChooser1::l::844:x}"
+			"$verticalGroup": "par l {comp fileChooser1::l::554:x}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JFileChooser" ) {
+				name: "fileChooser1"
+				"fileSelectionMode": 1
+				"dialogType": 1
+				"dialogTitle": "choose a folder to save"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "fileChooser1ActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 564, 401 )
+		} )
+	}
+}

@@ -9,7 +9,7 @@ public class Accountant_muni implements Computation {
     String accountant_id , muni_name;
     private double cost = 0 , income = 0;
 
-    Accountant_muni(String accountant_id , String muni_name)
+    public Accountant_muni(String accountant_id, String muni_name)
     {
         this.accountant_id = accountant_id;
         this.muni_name = muni_name;

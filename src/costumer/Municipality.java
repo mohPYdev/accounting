@@ -11,13 +11,8 @@ public class Municipality extends Costumer  {
     ArrayList<Instrument> instruments = new ArrayList<>();
     ArrayList<Salary> salaries = new ArrayList<>();
     private double fund;
-
-
     private String mayor_name;
     private int region;
-
-
-
 
     Municipality(String name, String email, String phone_number
             , String activity_type, ArrayList<String> employee_names,String mayor_name,int region, double fund , Receivals Receivals_pointer ) {

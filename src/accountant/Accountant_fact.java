@@ -9,7 +9,7 @@ public class Accountant_fact implements Computation{
     String accountant_id , fact_name;
     double cost = 0 , income = 0;
 
-    Accountant_fact(String accountant_id , String fact_name)
+    public Accountant_fact(String accountant_id, String fact_name)
     {
         this.accountant_id = accountant_id;
         this.fact_name = fact_name;
