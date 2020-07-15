@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :p:164:p, comp label2:::p:406:p, space ::85:x}, seq t {space ::43:x, par l {seq t {par l:::p {comp label4:::::x, comp label1:::::x, comp label3:::::x, comp label5::t:p:276:p}, space :p:30:p, par t:::p {comp name::l:::x, comp email::l:::x, comp phone::t:p:279:p, comp spinner3::l:p:139:p}, space :p:27:p}, seq t {comp button1:::p:144:p, space :p:254:p}}}}"
-			"$verticalGroup": "par l {seq l {comp label2:::p:64:p, space u:::p, par b {comp label1::b:p:36:p, comp name::b:p:36:p}, space :p:24:p, par b {comp label3::b:p:42:p, comp phone::b:p:42:p}, space :p:30:p, par b {comp label4::b:p:42:p, comp email::b:p:42:p}, space :p:22:p, par b {comp label5::b:::x, comp spinner3::b:p:46:p}, space s:::p, comp button1:::p::p, space :p:79:p}}"
+			"$horizontalGroup": "par l {seq t {space ::43:x, par t:::p {seq l {comp label9:::p:276:p, space :::x, comp reason:::p:279:p}, seq t {comp label7:::p:276:p, space :::x, comp date:::p:279:p}, seq t {comp label6:::p:276:p, space :::x, comp id:::p:279:p}, seq t {comp label1:::p:276:p, space :p:30:p, comp cost:::p:279:p}, seq l {par t:::p {comp label4:::::x, comp label3:::::x, comp label5:::p:276:p}, space :30::x, par l {comp fund::t:p:279:p, comp mayor::t:p:279:p, comp region:::p:139:p}}}, space :p:27:p}, seq {par l {seq {space :p:164:p, comp label2:::p:406:p}, seq l {space :p:253:p, comp button1:::p:144:p}}, space ::85:x}}"
+			"$verticalGroup": "par l {seq l {comp label2:::p:64:p, space u:::p, par b {comp label1::b:p:36:p, comp cost::b:p:36:p}, space s:::p, par l {comp label6:::p:36:p, comp id:::p:36:p}, space s:::p, par b {comp label7::b:p:36:p, comp date::b:p:36:p}, space :::p, par b {comp label9::b:p:36:p, comp reason::b:p:36:p}, space u:::p, par b {comp fund::b:p:42:p, comp label3::b:p:42:p}, space u:::p, par b {comp mayor::b:p:42:p, comp label4::b:p:42:p}, space :::p, par b {comp region::b:p:46:p, comp label5::b:::x}, space u:::p, comp button1:::p::p, space :p:5:p}}"
 		} ) {
 			name: "this"
 			"title": "Accounting"
@@ -18,7 +18,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
-				"text": "Receivals : "
+				"text": "Receival's cost : "
 				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -27,7 +27,7 @@ new FormModel {
 				"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "name"
+				name: "cost"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
@@ -41,7 +41,7 @@ new FormModel {
 				"font": #SwingDerivedFont1
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "email"
+				name: "mayor"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
@@ -49,10 +49,34 @@ new FormModel {
 				"font": #SwingDerivedFont0
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "phone"
+				name: "fund"
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {
-				name: "spinner3"
+				name: "region"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Receival's ID : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Receival's date : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "Receival's reason : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "id"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "date"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "reason"
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"
@@ -78,7 +102,7 @@ new FormModel {
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 438, 321 )
+			"size": new java.awt.Dimension( 438, 396 )
 			"location": new java.awt.Point( 0, 0 )
 		} )
 	}

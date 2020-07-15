@@ -1,8 +1,14 @@
 package graphic;
 
+import costumer.Factor;
+import costumer.Factory;
+import costumer.MAIN;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -17,9 +23,15 @@ import javax.swing.LayoutStyle;
  */
 public class Factory_Reg extends JFrame {
 	ArrayList<String> names;
-	public Factory_Reg(ArrayList<String> names) {
+	String name , email , phone , activity;
+	public Factory_Reg(String name, String email, String phone, String activity, ArrayList<String> names)
+	{
 		initComponents();
 		this.names = names;
+		this.name = name;
+		this.email = email;
+		this.activity = activity;
+		this.phone = phone;
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {
@@ -40,8 +52,14 @@ public class Factory_Reg extends JFrame {
 		regester.setVisible(true);
 	}
 
-	private void button1ActionPerformed(ActionEvent e) {
-
+	private void button1ActionPerformed(ActionEvent e) throws Exception {
+		Factory factory = new Factory(name , email , phone , activity , names ,Integer.parseInt(code.getText()), (int)equite.getValue() ,
+				boss.getText() , address.getText() , date.getText(), (double)fix.getValue() , (double)fix.getValue());
+		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
+		String path = nameToPath.get(name);
+		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/fixes.txt") , factory.getFix());
+		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/taxes.txt") , factory.getTax());
+		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/info.txt") , factory);
 	}
 
 	private void initComponents() {
@@ -54,19 +72,19 @@ public class Factory_Reg extends JFrame {
 		label2 = new JLabel();
 		label1 = new JLabel();
 		label3 = new JLabel();
-		name = new JTextField();
+		code = new JTextField();
 		button1 = new JButton();
 		label4 = new JLabel();
-		email = new JTextField();
+		boss = new JTextField();
 		label5 = new JLabel();
-		phone = new JTextField();
+		address = new JTextField();
 		label6 = new JLabel();
-		activity = new JTextField();
+		date = new JTextField();
 		label7 = new JLabel();
 		label8 = new JLabel();
-		spinner1 = new JSpinner();
-		spinner2 = new JSpinner();
-		spinner3 = new JSpinner();
+		fix = new JSpinner();
+		tax = new JSpinner();
+		equite = new JSpinner();
 
 		//======== this ========
 		setTitle("Accounting");
@@ -116,7 +134,13 @@ public class Factory_Reg extends JFrame {
 		//---- button1 ----
 		button1.setText("Register");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
-		button1.addActionListener(e -> button1ActionPerformed(e));
+		button1.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		//---- label4 ----
 		label4.setText("Boss name : ");
@@ -159,13 +183,13 @@ public class Factory_Reg extends JFrame {
 							.addGap(30, 30, 30)
 							.addGroup(contentPaneLayout.createParallelGroup()
 								.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-									.addComponent(name, GroupLayout.Alignment.LEADING)
-									.addComponent(email, GroupLayout.Alignment.LEADING)
-									.addComponent(phone, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))
-								.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-								.addComponent(activity, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-								.addComponent(spinner2, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-								.addComponent(spinner1, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
+									.addComponent(code, GroupLayout.Alignment.LEADING)
+									.addComponent(boss, GroupLayout.Alignment.LEADING)
+									.addComponent(address, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))
+								.addComponent(equite, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+								.addComponent(date, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+								.addComponent(tax, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+								.addComponent(fix, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
 							.addGap(23, 23, 23))))
 				.addGroup(contentPaneLayout.createSequentialGroup()
 					.addGap(252, 252, 252)
@@ -179,22 +203,22 @@ public class Factory_Reg extends JFrame {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-						.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+						.addComponent(code, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 					.addGap(24, 24, 24)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+						.addComponent(equite, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
 					.addGap(28, 28, 28)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(email, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+						.addComponent(boss, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addGap(26, 26, 26)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(phone, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(address, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label5, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
 					.addGap(26, 26, 26)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(activity, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(date, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label6, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup()
@@ -202,11 +226,11 @@ public class Factory_Reg extends JFrame {
 							.addComponent(label7, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
 							.addGap(18, 18, 18))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-							.addComponent(spinner1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+							.addComponent(fix, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label8, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner2, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+						.addComponent(tax, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
 					.addComponent(button1)
 					.addGap(111, 111, 111))
@@ -225,18 +249,18 @@ public class Factory_Reg extends JFrame {
 	private JLabel label2;
 	private JLabel label1;
 	private JLabel label3;
-	private JTextField name;
+	private JTextField code;
 	private JButton button1;
 	private JLabel label4;
-	private JTextField email;
+	private JTextField boss;
 	private JLabel label5;
-	private JTextField phone;
+	private JTextField address;
 	private JLabel label6;
-	private JTextField activity;
+	private JTextField date;
 	private JLabel label7;
 	private JLabel label8;
-	private JSpinner spinner1;
-	private JSpinner spinner2;
-	private JSpinner spinner3;
+	private JSpinner fix;
+	private JSpinner tax;
+	private JSpinner equite;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

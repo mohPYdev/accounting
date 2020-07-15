@@ -5,7 +5,7 @@ public class Instrument {
     String date , price;
     String side1_name , side2_name;
 
-    Instrument(String date , String price , String side1_name , String side2_name)
+    public Instrument(String date, String price, String side1_name, String side2_name)
     {
         this.date = date;
         this.price=  price;

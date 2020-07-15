@@ -1,5 +1,12 @@
+package graphic;
+
+import costumer.*;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -13,24 +20,53 @@ import javax.swing.LayoutStyle;
  * @author mohamd
  */
 public class Add_Factor extends JFrame {
+	ArrayList<Product> products = new ArrayList<>();
 	public Add_Factor() {
 		initComponents();
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		Login login = new Login();
+		login.setVisible(true);
 	}
 
 	private void menuItem2ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		AccountingSearch accountingSearch = new AccountingSearch();
+		accountingSearch.setVisible(true);
 	}
 
 	private void menuItem3ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
-	private void button1ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+	private void button1ActionPerformed(ActionEvent e) throws Exception {
+		Product product = new Product(name.getText() , String.valueOf(price.getValue()) , String.valueOf(value.getValue()));
+		products.add(product);
+	}
+
+	private void button2ActionPerformed(ActionEvent e) throws Exception {
+		Factor.types type;
+		if(comboBox1.getSelectedIndex() == 0)
+			type = Factor.types.BUY;
+		else
+			type = Factor.types.SALE;
+
+		Factor factor = new Factor(id.getText() , date.getText() , type , sender.getText() ,receiver.getText() , products);
+
+		TreeMap<String , String > nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
+		String path = nameToPath.get(fname.getText());
+		Costumer costumer = MAIN.READ_OBJECT(new File(path + "/" + fname.getText() + "/Attributes/" + "info.txt"));
+		if (costumer instanceof Municipality)
+			MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Factors/" + id.getText()+".txt") , factor);
+		else if(costumer instanceof Factory && type == Factor.types.BUY)
+			MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Factors_expense/" + id.getText()+".txt") , factor);
+		else if(costumer instanceof Factory && type == Factor.types.SALE)
+			MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Factors_income/" + id.getText()+".txt") , factor);
+
 	}
 
 	private void initComponents() {
@@ -46,22 +82,22 @@ public class Add_Factor extends JFrame {
 		name = new JTextField();
 		button1 = new JButton();
 		label4 = new JLabel();
-		spinner3 = new JSpinner();
+		price = new JSpinner();
 		label5 = new JLabel();
 		button2 = new JButton();
-		spinner4 = new JSpinner();
+		value = new JSpinner();
 		label6 = new JLabel();
 		label7 = new JLabel();
 		label8 = new JLabel();
 		label9 = new JLabel();
 		label10 = new JLabel();
 		label11 = new JLabel();
-		name2 = new JTextField();
-		name3 = new JTextField();
-		name4 = new JTextField();
-		name5 = new JTextField();
+		id = new JTextField();
+		receiver = new JTextField();
+		sender = new JTextField();
+		date = new JTextField();
 		label12 = new JLabel();
-		name6 = new JTextField();
+		fname = new JTextField();
 		label13 = new JLabel();
 		comboBox1 = new JComboBox<>();
 
@@ -113,7 +149,13 @@ public class Add_Factor extends JFrame {
 		//---- button1 ----
 		button1.setText("Add");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
-		button1.addActionListener(e -> button1ActionPerformed(e));
+		button1.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		//---- label4 ----
 		label4.setText("Value added to price : ");
@@ -125,7 +167,18 @@ public class Add_Factor extends JFrame {
 		//---- button2 ----
 		button2.setText("Done");
 		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
-		button2.addActionListener(e -> button1ActionPerformed(e));
+		button2.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			try {
+				button2ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		//---- label6 ----
 		label6.setText("specify the product that you want to add to factor ");
@@ -173,14 +226,6 @@ public class Add_Factor extends JFrame {
 					.addGap(49, 49, 49)
 					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 328, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(350, Short.MAX_VALUE))
-				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addContainerGap(439, Short.MAX_VALUE)
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addComponent(label5, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
-						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-							.addComponent(button2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-							.addGap(244, 244, 244)))
-					.addGap(308, 308, 308))
 				.addGroup(contentPaneLayout.createSequentialGroup()
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addGroup(contentPaneLayout.createSequentialGroup()
@@ -191,41 +236,50 @@ public class Add_Factor extends JFrame {
 								.addComponent(label4, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE))
 							.addGap(30, 30, 30)
 							.addGroup(contentPaneLayout.createParallelGroup()
-								.addComponent(name, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
-								.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-								.addComponent(spinner4, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(price, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+								.addComponent(value, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+								.addComponent(name, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(contentPaneLayout.createSequentialGroup()
 							.addGap(150, 150, 150)
 							.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(label7, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)))
-					.addGap(53, 53, 53)
+					.addGap(90, 90, 90)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addGroup(contentPaneLayout.createSequentialGroup()
 							.addComponent(label11, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-							.addComponent(name3, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
+							.addComponent(receiver, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addComponent(label10, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-							.addComponent(name4, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
+							.addComponent(sender, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addComponent(label9, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-							.addComponent(name5, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
+							.addComponent(date, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addComponent(label8, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-							.addComponent(name2, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
+							.addComponent(id, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addGroup(contentPaneLayout.createParallelGroup()
 								.addComponent(label12, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE)
 								.addComponent(label13, GroupLayout.PREFERRED_SIZE, 229, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
 							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-								.addComponent(name6, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+								.addComponent(fname, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
 								.addComponent(comboBox1, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))))
 					.addGap(76, 76, 76))
+				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+					.addContainerGap(414, Short.MAX_VALUE)
+					.addGroup(contentPaneLayout.createParallelGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+							.addComponent(button2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
+							.addGap(552, 552, 552))
+						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+							.addComponent(label5, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
+							.addGap(333, 333, 333))))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
@@ -239,21 +293,21 @@ public class Add_Factor extends JFrame {
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 							.addComponent(label8, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-							.addComponent(name2, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(id, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+							.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(price, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label9, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-						.addComponent(name5, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+						.addComponent(date, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(value, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label10, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-						.addComponent(name4, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+						.addComponent(sender, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addGroup(contentPaneLayout.createSequentialGroup()
 							.addGap(24, 24, 24)
@@ -264,11 +318,11 @@ public class Add_Factor extends JFrame {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(label11, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-								.addComponent(name3, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(receiver, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))))
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label12, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-						.addComponent(name6, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+						.addComponent(fname, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label13, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
@@ -296,22 +350,22 @@ public class Add_Factor extends JFrame {
 	private JTextField name;
 	private JButton button1;
 	private JLabel label4;
-	private JSpinner spinner3;
+	private JSpinner price;
 	private JLabel label5;
 	private JButton button2;
-	private JSpinner spinner4;
+	private JSpinner value;
 	private JLabel label6;
 	private JLabel label7;
 	private JLabel label8;
 	private JLabel label9;
 	private JLabel label10;
 	private JLabel label11;
-	private JTextField name2;
-	private JTextField name3;
-	private JTextField name4;
-	private JTextField name5;
+	private JTextField id;
+	private JTextField receiver;
+	private JTextField sender;
+	private JTextField date;
 	private JLabel label12;
-	private JTextField name6;
+	private JTextField fname;
 	private JLabel label13;
 	private JComboBox<String> comboBox1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables

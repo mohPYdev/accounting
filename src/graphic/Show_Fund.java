@@ -1,21 +1,16 @@
 package graphic;
 
-import accountant.Accountant_comp;
-import accountant.Accountant_fact;
-import accountant.Accountant_muni;
-import costumer.*;
+import costumer.MAIN;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.util.Dictionary;
-import java.util.Enumeration;
 import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 /*
- * Created by JFormDesigner on Tue Jul 14 11:44:21 IRDT 2020
+ * Created by JFormDesigner on Wed Jul 15 18:44:57 IRDT 2020
  */
 
 
@@ -23,58 +18,9 @@ import javax.swing.LayoutStyle;
 /**
  * @author mohamd
  */
-public class AccountingSearch extends JFrame {
-	public AccountingSearch() {
+public class Show_Fund extends JFrame {
+	public Show_Fund() {
 		initComponents();
-	}
-
-	private void button1ActionPerformed(ActionEvent e) throws Exception {
-		String path;
-		TreeMap<String , String > nameToPath;
-		File file = new File("paths.txt");
-		if(file.exists())
-		{
-			nameToPath = MAIN.READ_OBJECT(file);
-			if(nameToPath.containsKey(textField1.getText())) {
-				path = nameToPath.get(textField1.getText());
-				// Factory= 0    ,  Company = 1 ,   Municipality = 2
-				double cost , income , profit;
-				if(comboBox1.getSelectedIndex() == 0){
-					Accountant_fact factory = new Accountant_fact(textField2.getText() , textField1.getText());
-					cost = factory.costComputer(path);
-					income = factory.incomeComputer(path);
-					profit = factory.profitComputer(path);
-				}
-				else if(comboBox1.getSelectedIndex() == 1){
-					Accountant_comp company = new Accountant_comp(textField2.getText() , textField1.getText());
-					cost = company.costComputer(path);
-					income = company.incomeComputer(path);
-					profit = company.profitComputer(path);
-				}
-				else{
-					Accountant_muni municipality = new Accountant_muni(textField2.getText() , textField1.getText());
-					cost = municipality.costComputer(path);
-					income = municipality.incomeComputer(path);
-					profit = municipality.profitComputer(path);
-				}
-
-				JOptionPane.showMessageDialog(rootPane , "cost : " + cost + "\nincome : " + income + "\nprofit : " + profit);
-			}
-			else {
-				try {
-					throw new NoData();
-				} catch (NoData ex) {
-					JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-				}
-			}
-		}
-		else {
-			try {
-				throw new NoData();
-			} catch (NoData ex) {
-				JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-			}
-		}
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {
@@ -89,33 +35,11 @@ public class AccountingSearch extends JFrame {
 		regester.setVisible(true);
 	}
 
-	private void button2ActionPerformed(ActionEvent e) {
-		try{
-			TreeMap<String , String> nameToPath= MAIN.READ_OBJECT(new File("paths.txt"));
-			String path = nameToPath.get(textField1.getText());
-			Costumer costumer = MAIN.READ_OBJECT(new File(path +"/" +textField1.getText() + "/Attributes/info.txt"));
-			if(costumer instanceof Company)
-			{
-				JOptionPane.showMessageDialog(rootPane , "economic code :\t " + ((Company) costumer).getEconemic_code()
-						+ "\nBoss :\t" + ((Company) costumer).getBoss_name() + "\naddress :\t" + ((Company) costumer).getAddress()
-						+ "\nDate :\t" + ((Company) costumer).getDate_of_establishment() + "\nemail :\t" + costumer.getEmail()
-						+ "\nPhone :\t" + costumer.getPhone_number());
-			}
-			else if(costumer instanceof Factory)
-			{
-				JOptionPane.showMessageDialog(rootPane , "economic code :\t " + ((Factory) costumer).getEconemic_code()
-						+ "\nBoss :\t" + ((Factory) costumer).getBoss_name() + "\naddress :\t" + ((Factory) costumer).getAddress()
-						+ "\nDate :\t" + ((Factory) costumer).getDate_of_establishment() + "\nemail :\t" + costumer.getEmail()
-						+ "\nPhone :\t" + costumer.getPhone_number() + "\nequity :\t" + ((Factory) costumer).getEquities());
-			}
-			else {
-				JOptionPane.showMessageDialog(rootPane, "Mayor's name :\t" + ((Municipality) costumer).getMayor_name()
-						+ "\nRegion :\t" + ((Municipality) costumer).getRegion()
-						+ "\nemail :\t" + costumer.getEmail()
-						+ "\nPhone :\t" + costumer.getPhone_number());
-			}
-		} catch (Exception ignored) {
-		}
+	private void button1ActionPerformed(ActionEvent e) throws Exception {
+		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
+		String path = nameToPath.get(textField1.getText());
+		Double fund = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Attributes/fund.txt"));
+		JOptionPane.showMessageDialog(rootPane , "price :\t" + fund);
 	}
 
 	private void menuItem3ActionPerformed(ActionEvent e) {
@@ -190,13 +114,8 @@ public class AccountingSearch extends JFrame {
 		menuItem11 = new JMenuItem();
 		label2 = new JLabel();
 		label1 = new JLabel();
-		label3 = new JLabel();
 		textField1 = new JTextField();
-		comboBox1 = new JComboBox<>();
 		button1 = new JButton();
-		label4 = new JLabel();
-		textField2 = new JTextField();
-		button2 = new JButton();
 
 		//======== this ========
 		setTitle("Accounting");
@@ -277,7 +196,7 @@ public class AccountingSearch extends JFrame {
 		setJMenuBar(menuBar1);
 
 		//---- label2 ----
-		label2.setText("Accountant");
+		label2.setText("fund info");
 		label2.setFont(new Font("Stencil", Font.BOLD, 44));
 		label2.setEnabled(false);
 
@@ -285,19 +204,8 @@ public class AccountingSearch extends JFrame {
 		label1.setText("Name of the facility : ");
 		label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 9f));
 
-		//---- label3 ----
-		label3.setText("Kind of facility : ");
-		label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 9f));
-
-		//---- comboBox1 ----
-		comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
-			"Factory",
-			"Company",
-			"Municipality"
-		}));
-
 		//---- button1 ----
-		button1.setText("calculate");
+		button1.setText("show");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
 		button1.addActionListener(e -> {
 			try {
@@ -307,74 +215,36 @@ public class AccountingSearch extends JFrame {
 			}
 		});
 
-		//---- label4 ----
-		label4.setText("Accountant ID  : ");
-		label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 9f));
-
-		//---- button2 ----
-		button2.setText("show info");
-		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
-		button2.addActionListener(e -> {
-			try {
-				button1ActionPerformed(e);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			button2ActionPerformed(e);
-		});
-
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGap(51, 51, 51)
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGroup(contentPaneLayout.createParallelGroup()
-								.addComponent(label3, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label4, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(contentPaneLayout.createParallelGroup()
-								.addComponent(comboBox1, GroupLayout.Alignment.TRAILING)
-								.addComponent(textField2, GroupLayout.Alignment.TRAILING)
-								.addComponent(textField1))
-							.addContainerGap())
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addGap(119, 119, 119))))
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGap(218, 218, 218)
-					.addComponent(button2, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(237, Short.MAX_VALUE))
+					.addGap(50, 50, 50)
+					.addComponent(label1, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+					.addGap(53, 53, 53)
+					.addComponent(textField1, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+					.addContainerGap())
 				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addContainerGap(236, Short.MAX_VALUE)
+					.addContainerGap(189, Short.MAX_VALUE)
 					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
-					.addGap(110, 110, 110))
+					.addGap(60, 60, 60))
+				.addGroup(contentPaneLayout.createSequentialGroup()
+					.addGap(245, 245, 245)
+					.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(266, Short.MAX_VALUE))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addGap(33, 33, 33)
+					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-					.addGap(18, 18, 18)
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
-					.addGap(18, 18, 18)
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(button2)
-						.addComponent(button1))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addComponent(button1)
+					.addContainerGap(12, Short.MAX_VALUE))
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -398,12 +268,7 @@ public class AccountingSearch extends JFrame {
 	private JMenuItem menuItem11;
 	private JLabel label2;
 	private JLabel label1;
-	private JLabel label3;
 	private JTextField textField1;
-	private JComboBox<String> comboBox1;
 	private JButton button1;
-	private JLabel label4;
-	private JTextField textField2;
-	private JButton button2;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

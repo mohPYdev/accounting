@@ -21,7 +21,8 @@ import javax.swing.LayoutStyle;
  */
 public class Regester extends JFrame {
 	ArrayList<String> names = new ArrayList<>();
-	TreeMap<String , String> nameToPath;
+	TreeMap<String , String> nameToPath = new TreeMap<>();
+	FileChooser fileChooser;
 	public Regester() {
 		initComponents();
 	}
@@ -38,35 +39,44 @@ public class Regester extends JFrame {
 		accountingSearch.setVisible(true);
 	}
 
-	private void button1ActionPerformed(ActionEvent e) {
+	private void button1ActionPerformed(ActionEvent e) throws Exception {
 		this.dispose();
+		File file = new File("paths.txt");
+
+		if(file.exists())
+		{
+			nameToPath = MAIN.READ_OBJECT(file);
+		}
+		nameToPath.put(name.getText() , fileChooser.fileChooser1.getSelectedFile().getAbsolutePath());
+		MAIN.WRITE_OBJECT(file , nameToPath);
+
 		String path = nameToPath.get(name.getText());
 		new File(path , name.getText()).mkdir();
 		if(comboBox1.getSelectedIndex() == 0)
 		{
-			new File(path + "/" + name.getText() , "Instruments");
-			new File(path + "/" + name.getText() , "Factors_expense");
-			new File(path + "/" + name.getText() , "Factors_income");
-			new File(path + "/" + name.getText() , "Bills");
-			new File(path + "/" + name.getText() , "Salaries");
-			new File(path + "/" + name.getText() , "Attributes");
-			Factory_Reg factory_reg = new Factory_Reg(names);
+			new File(path + "/" + name.getText() , "Instruments").mkdir();
+			new File(path + "/" + name.getText() , "Factors_expense").mkdir();
+			new File(path + "/" + name.getText() , "Factors_income").mkdir();
+			new File(path + "/" + name.getText() , "Bills").mkdir();
+			new File(path + "/" + name.getText() , "Salaries").mkdir();
+			new File(path + "/" + name.getText() , "Attributes").mkdir();
+			Factory_Reg factory_reg = new Factory_Reg(name.getText() , email.getText() , phone.getText() , activity.getText() ,names);
 			factory_reg.setVisible(true);
 		}
 		else if(comboBox1.getSelectedIndex() == 1){
-			new File(path + "/" + name.getText() , "Bills");
-			new File(path + "/" + name.getText() , "Projects");
-			new File(path + "/" + name.getText() , "Salaries");
-			new File(path + "/" + name.getText() , "Attributes");
-			Company_Reg company_reg = new Company_Reg(names);
+			new File(path + "/" + name.getText() , "Bills").mkdir();
+			new File(path + "/" + name.getText() , "Projects").mkdir();
+			new File(path + "/" + name.getText() , "Salaries").mkdir();
+			new File(path + "/" + name.getText() , "Attributes").mkdir();
+			Company_Reg company_reg = new Company_Reg(name.getText() , email.getText() , phone.getText() , activity.getText() ,names);
 			company_reg.setVisible(true);
 		}
 		else {
-			new File(path + "/" + name.getText(), "Factors");
-			new File(path + "/" + name.getText() , "Instruments");
-			new File(path + "/" + name.getText() , "Salaries");
-			new File(path + "/" + name.getText() , "Attributes");
-			Municipality_Reg municipality_reg = new Municipality_Reg();
+			new File(path + "/" + name.getText(), "Factors").mkdir();
+			new File(path + "/" + name.getText() , "Instruments").mkdir();
+			new File(path + "/" + name.getText() , "Salaries").mkdir();
+			new File(path + "/" + name.getText() , "Attributes").mkdir();
+			Municipality_Reg municipality_reg = new Municipality_Reg(name.getText() , email.getText() , phone.getText() , activity.getText() ,names);
 			municipality_reg.setVisible(true);
 		}
 	}
@@ -77,15 +87,38 @@ public class Regester extends JFrame {
 	}
 
 	private void button3ActionPerformed(ActionEvent e) throws Exception {
-		FileChooser fileChooser = new FileChooser();
+		fileChooser = new FileChooser();
 		fileChooser.setVisible(true);
-		File file = new File("paths.txt");
-		if(file.exists())
-		{
-			nameToPath = MAIN.READ_OBJECT(file);
-		}
-		nameToPath.put(name.getText() , fileChooser.fileChooser1.getSelectedFile().getAbsolutePath());
-		MAIN.WRITE_OBJECT(file , nameToPath);
+	}
+
+	private void menuItem3ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Add_Salary add_salary = new Add_Salary();
+		add_salary.setVisible(true);
+	}
+
+	private void menuItem4ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Add_Project add_project = new Add_Project();
+		add_project.setVisible(true);
+	}
+
+	private void menuItem5ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Add_Factor add_factor = new Add_Factor();
+		add_factor.setVisible(true);
+	}
+
+	private void menuItem6ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Add_Instrument add_instrument = new Add_Instrument();
+		add_instrument.setVisible(true);
+	}
+
+	private void menuItem7ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Add_Bill add_bill = new Add_Bill();
+		add_bill.setVisible(true);
 	}
 
 	private void initComponents() {
@@ -94,6 +127,12 @@ public class Regester extends JFrame {
 		menu1 = new JMenu();
 		menuItem1 = new JMenuItem();
 		menuItem2 = new JMenuItem();
+		menu2 = new JMenu();
+		menuItem3 = new JMenuItem();
+		menuItem4 = new JMenuItem();
+		menuItem5 = new JMenuItem();
+		menuItem6 = new JMenuItem();
+		menuItem7 = new JMenuItem();
 		label2 = new JLabel();
 		label1 = new JLabel();
 		label3 = new JLabel();
@@ -137,6 +176,37 @@ public class Regester extends JFrame {
 				menu1.add(menuItem2);
 			}
 			menuBar1.add(menu1);
+
+			//======== menu2 ========
+			{
+				menu2.setText("Edit");
+
+				//---- menuItem3 ----
+				menuItem3.setText("add Salary");
+				menuItem3.addActionListener(e -> menuItem3ActionPerformed(e));
+				menu2.add(menuItem3);
+
+				//---- menuItem4 ----
+				menuItem4.setText("add Project");
+				menuItem4.addActionListener(e -> menuItem4ActionPerformed(e));
+				menu2.add(menuItem4);
+
+				//---- menuItem5 ----
+				menuItem5.setText("add Factor");
+				menuItem5.addActionListener(e -> menuItem5ActionPerformed(e));
+				menu2.add(menuItem5);
+
+				//---- menuItem6 ----
+				menuItem6.setText("add Instrument");
+				menuItem6.addActionListener(e -> menuItem6ActionPerformed(e));
+				menu2.add(menuItem6);
+
+				//---- menuItem7 ----
+				menuItem7.setText("add Bill");
+				menuItem7.addActionListener(e -> menuItem7ActionPerformed(e));
+				menu2.add(menuItem7);
+			}
+			menuBar1.add(menu2);
 		}
 		setJMenuBar(menuBar1);
 
@@ -163,7 +233,13 @@ public class Regester extends JFrame {
 		//---- button1 ----
 		button1.setText("Register");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
-		button1.addActionListener(e -> button1ActionPerformed(e));
+		button1.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		//---- label4 ----
 		label4.setText("Email : ");
@@ -207,7 +283,7 @@ public class Regester extends JFrame {
 		contentPaneLayout.setHorizontalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addGap(0, 0, Short.MAX_VALUE)
+					.addGap(0, 27, Short.MAX_VALUE)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addGroup(contentPaneLayout.createParallelGroup()
@@ -239,20 +315,19 @@ public class Regester extends JFrame {
 							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addGap(0, 0, Short.MAX_VALUE)
-							.addGroup(contentPaneLayout.createParallelGroup()
-								.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-									.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-										.addGroup(contentPaneLayout.createParallelGroup()
-											.addComponent(phone, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-											.addComponent(email, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-											.addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-											.addComponent(activity, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))
-										.addComponent(name, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-										.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE))
-									.addGap(46, 46, 46))
-								.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-									.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-									.addGap(246, 246, 246))))))
+							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addGroup(contentPaneLayout.createParallelGroup()
+									.addComponent(phone, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+									.addComponent(email, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+									.addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+									.addComponent(activity, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))
+								.addComponent(name, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+								.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE))
+							.addGap(46, 46, 46))))
+				.addGroup(contentPaneLayout.createSequentialGroup()
+					.addGap(220, 220, 220)
+					.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+					.addGap(0, 291, Short.MAX_VALUE))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
@@ -305,6 +380,12 @@ public class Regester extends JFrame {
 	private JMenu menu1;
 	private JMenuItem menuItem1;
 	private JMenuItem menuItem2;
+	private JMenu menu2;
+	private JMenuItem menuItem3;
+	private JMenuItem menuItem4;
+	private JMenuItem menuItem5;
+	private JMenuItem menuItem6;
+	private JMenuItem menuItem7;
 	private JLabel label2;
 	private JLabel label1;
 	private JLabel label3;

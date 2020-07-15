@@ -4,15 +4,15 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:51:p, par l {seq {par l {comp label3::l:p:288:p, comp label4:::p:288:p}, space :::p, par l {comp comboBox1::t:::x, comp textField2::t:::x, comp textField1::l:::x}, space :::p}, seq {comp label1:::::x, space :p:119:p}}}, seq l {space :p:218:p, comp button2:::p:144:p, space :::p, comp button1:::p:144:p, space ::237:x}, seq t {space ::236:x, comp label2:::p:406:p, space :p:110:p}}"
-			"$verticalGroup": "par l {seq l {comp label2:::p:67:p, space :p:33:p, par b {comp label1::b:p:36:p, comp textField1::b:p:36:p}, space s:::p, par l {comp label3:::p:42:p, comp comboBox1:::p:42:p}, space s:::p, par l {comp label4:::p:42:p, comp textField2::l:p:42:p}, space u:::p, par b {comp button2::b:p::p, comp button1::b:p::p}, space :::x}}"
+			"$horizontalGroup": "par l {seq l {space :p:50:p, comp label1:::p:242:p, space :p:53:p, comp textField1::::295:x, space :::p}, seq l {space :p:245:p, comp button1:::p:144:p, space ::266:x}, seq t {space ::222:x, comp label2:::p:406:p, space :p:27:p}}"
+			"$verticalGroup": "par l {seq l {comp label2:::p:55:p, space :p:18:p, par b {comp label1::b:p:36:p, comp textField1::b:p::p}, space u:::p, comp button1:::p::p, space ::12:x}}"
 		} ) {
 			name: "this"
 			"title": "Accounting"
 			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "Accountant"
+				"text": "tax info"
 				"font": new java.awt.Font( "Stencil", 1, 44 )
 				"enabled": false
 			} )
@@ -21,43 +21,14 @@ new FormModel {
 				"text": "Name of the facility : "
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
 			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label3"
-				"text": "Kind of facility : "
-				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
-			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 			} )
-			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "comboBox1"
-				"model": new javax.swing.DefaultComboBoxModel {
-					selectedItem: "Factory"
-					addElement( "Factory" )
-					addElement( "Company" )
-					addElement( "Municipality" )
-				}
-			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
-				"text": "calculate"
-				"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				"text": "show"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label4"
-				"text": "Accountant ID  : "
-				"font": #SwingDerivedFont0
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
-				"text": "show info"
-				"font": #SwingDerivedFont1
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"
@@ -127,7 +98,7 @@ new FormModel {
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 503, 270 )
+			"size": new java.awt.Dimension( 438, 167 )
 			"location": new java.awt.Point( 0, 0 )
 		} )
 	}

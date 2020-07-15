@@ -14,8 +14,8 @@ public class Municipality extends Costumer  {
     private String mayor_name;
     private int region;
 
-    Municipality(String name, String email, String phone_number
-            , String activity_type, ArrayList<String> employee_names,String mayor_name,int region, double fund , Receivals Receivals_pointer ) {
+    public Municipality(String name, String email, String phone_number
+            , String activity_type, ArrayList<String> employee_names, String mayor_name, int region, double fund, Receivals Receivals_pointer) {
 
         super(name, email, phone_number, activity_type, employee_names);
 

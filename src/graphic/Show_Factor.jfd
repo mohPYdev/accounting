@@ -4,96 +4,65 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space :0:27:x, par l {seq t {par l {comp label1:::p:251:p, par l:t {comp label3::l:p:251:p, comp label4::l:p:251:p, comp label5::l:p:260:p, comp label6:::p:260:p}}, space :p:368:p}, seq t {comp label8:::p:537:p, space :p:42:p}}}, seq {space :::p, par l {seq l {par t:::p {seq l {comp label10:::p:362:p, space :::x, comp button3:::p:130:p}, seq l {comp label9:::p:216:p, space :p:38:p, comp emp:::p:205:p, space s:::p, comp button2:::p:86:p}}, space :::x}, seq t {space :0:0:x, par t {par l:t {comp phone:::p:279:p, comp email:::p:279:p, comp comboBox1:::p:279:p, comp activity::l:p:279:p}, comp name::t:p:279:p, comp label2:::p:406:p}, space :p:46:p}}}, seq l {space :p:220:p, comp button1:::p:144:p, space :0:291:x}}"
-			"$verticalGroup": "par l {seq l {comp label2:::p:55:p, space u:::p, par l {seq {comp name:::p:36:p, space s:::p, comp comboBox1:::p:42:p, space s:::p, comp email:::p:42:p, space u:::p, comp phone:::p:42:p, space s:::p, comp activity:::p:42:p}, seq {comp label1:::p:36:p, space s:::p, comp label3:::p:42:p, space s:::p, comp label4:::p:42:p, space u:::p, comp label5:::p:42:p, space s:::p, comp label6:::p:42:p}}, space s:::p, comp label8:::p::p, space s:::p, par b {comp label9::b:p:42:p, comp emp::b:p:42:p, comp button2::b:p::p}, space s:::p, par b {comp label10::b:p:42:p, comp button3::b:p::p}, space :::p, comp button1:::p:33:p, space :::p}}"
+			"$horizontalGroup": "par l {seq t {space :0:174:x, comp label2:::p:406:p, space :p:40:p}, seq {par t {seq {space :0:0:x, comp label5:::p:268:p}, seq {space :p:26:p, par l {comp label3::l:::x, seq {comp label1:::p:268:p, space :0:0:x}, seq t {space :0:0:x, comp label4:::p:268:p}}}}, par l {par l {seq {space :p:26:p, par l {comp textField1::l:p:273:p, comp comboBox1::l:::x}}, seq {space :::x, comp comboBox2:::p:273:p}}, seq t {space :p:26:p, comp textField2:::p:273:p}}, space ::27:x}, seq l {space :p:232:p, comp button1:::p:144:p, space ::244:x}}"
+			"$verticalGroup": "par l {seq l {comp label2:::p:56:p, par l {seq l {space :26:26:p, comp textField1:::p::p, space u:::p, comp comboBox1:::p::p}, seq l {space :p:21:p, comp label1:::p::p, space :::p, comp label3:::p:42:p}}, space :::p, par b {comp label4::b:p::p, comp comboBox2::b:p::p}, space s:::p, par b {comp textField2::b:p::p, comp label5::b:p::p}, space s:::p, comp button1:::p::p, space :::x}}"
 		} ) {
 			name: "this"
 			"title": "Accounting"
 			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "REgister"
+				"text": "factor info"
 				"font": new java.awt.Font( "Stencil", 1, 44 )
 				"enabled": false
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Name of the facility : "
-				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Kind of facility : "
-				"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "name"
+				name: "textField1"
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox1"
 				"model": new javax.swing.DefaultComboBoxModel {
 					selectedItem: "Factory"
 					addElement( "Factory" )
-					addElement( "Company" )
 					addElement( "Municipality" )
 				}
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
-				"text": "Register"
+				"text": "calculate"
 				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
-				"text": "Email : "
-				"font": #SwingDerivedFont1
+				"text": "Type  : "
+				"font": #SwingDerivedFont0
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "email"
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox2"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Sale"
+					addElement( "Sale" )
+					addElement( "Buy" )
+				}
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
-				"text": "Phone Number : "
+				"text": "ID : "
 				"font": #SwingDerivedFont0
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "phone"
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label6"
-				"text": "Activity Type : "
-				"font": #SwingDerivedFont0
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "activity"
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label8"
-				"text": "please enter the name of your employees and hit the add button "
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label9"
-				"text": "Employee name : "
-				"font": #SwingDerivedFont0
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "emp"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button2"
-				"text": "add"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label10"
-				"text": "Where do you want to save ?"
-				"font": #SwingDerivedFont0
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "button3"
-				"text": "Choose"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
+				name: "textField2"
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"
@@ -108,42 +77,62 @@ new FormModel {
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem2"
-						"text": "accountant"
+						"text": "register a facility"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem2ActionPerformed", true ) )
 					} )
 				} )
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
 					name: "menu2"
-					"text": "Edit"
+					"text": "show"
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem3"
-						"text": "add Salary"
+						"text": "salary"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem3ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem4"
-						"text": "add Project"
+						"text": "instrument"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem4ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem5"
-						"text": "add Factor"
+						"text": "bill"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem5ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem6"
-						"text": "add Instrument"
+						"text": "project"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem6ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem7"
-						"text": "add Bill"
+						"text": "factor"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem7ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem8"
+						"text": "fund"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem8ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem9"
+						"text": "receivals"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem9ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem10"
+						"text": "tax"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem10ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem11"
+						"text": "fix"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem11ActionPerformed", true ) )
 					} )
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {
-			"size": new java.awt.Dimension( 438, 429 )
+			"size": new java.awt.Dimension( 415, 265 )
 			"location": new java.awt.Point( 0, 0 )
 		} )
 	}

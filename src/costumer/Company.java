@@ -15,11 +15,11 @@ public class Company extends Costumer  {
     private String boss_name;
     private String address;
     private String date_of_establishment;
-    private String save_path;          // the path that the user wants to save the info of the company.
 
 
-    Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,
-            String boss_name, String address, String date_of_establishment,int other_expence , int investment) {
+
+    public Company(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names, int econemic_code,
+                   String boss_name, String address, String date_of_establishment, int other_expence, int investment) {
         super(name, email, phone_number, activity_type, employee_names);
         this.econemic_code=econemic_code;
         this.boss_name=boss_name;
@@ -89,10 +89,6 @@ public class Company extends Costumer  {
     {
         this.salaries.add(salary);
         super.add_employee(salary.emp_name);
-    }
-
-    public void setSave_path(String save_path) {
-        this.save_path = save_path;
     }
 
 

@@ -26,6 +26,7 @@ public class FileChooser extends JFrame {
 
 	private void fileChooser1ActionPerformed(ActionEvent e) throws Exception {
 		this.dispose();
+		System.out.println(fileChooser1.getSelectedFile().getAbsolutePath());
 	}
 
 	private void initComponents() {

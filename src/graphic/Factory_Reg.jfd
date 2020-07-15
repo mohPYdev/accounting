@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::47:x, par l {comp label2::t:p:406:p, seq t {par l {par l:l::p {comp label4:::::x, comp label1:::::x, comp label3:::::x, comp label6:::::x, comp label5::t:p:276:p}, comp label8:::p:276:p, comp label7:::p:276:p}, space :p:30:p, par l {par t:l::p {comp name::l:::x, comp email::l:::x, comp phone::l:p:279:p}, comp spinner3:::p:139:p, comp activity:::p:279:p, comp spinner2:::p:140:p, comp spinner1:::p:140:p}, space :p:23:p}}}, seq l {space :p:252:p, comp button1:::p:144:p, space :0:259:x}}"
-			"$verticalGroup": "par l {seq l {comp label2:::p:54:p, space :::p, par b {comp label1::b:p:36:p, comp name::b:p:36:p}, space :p:24:p, par b {comp label3::b:p:42:p, comp spinner3::b:p:46:p}, space :p:28:p, par b {comp label4::b:p:42:p, comp email::b:p:42:p}, space :p:26:p, par b {comp phone::b:p:42:p, comp label5::b::46:x}, space :p:26:p, par b {comp activity::b:p:42:p, comp label6::b:p:42:p}, space s:::p, par l {seq l {comp label7:::p:46:p, space :p:18:p}, seq t {comp spinner1:::p:46:p, space :::p}}, par b {comp label8::b:p:46:p, comp spinner2::b:p:46:p}, space s:::p, comp button1:::p::p, space :p:111:p}}"
+			"$horizontalGroup": "par l {seq t {space ::47:x, par l {comp label2::t:p:406:p, seq t {par l {par l:l::p {comp label4:::::x, comp label1:::::x, comp label3:::::x, comp label6:::::x, comp label5::t:p:276:p}, comp label8:::p:276:p, comp label7:::p:276:p}, space :p:30:p, par l {par t:l::p {comp code::l:::x, comp boss::l:::x, comp address::l:p:279:p}, comp equite:::p:139:p, comp date:::p:279:p, comp tax:::p:140:p, comp fix:::p:140:p}, space :p:23:p}}}, seq l {space :p:252:p, comp button1:::p:144:p, space :0:259:x}}"
+			"$verticalGroup": "par l {seq l {comp label2:::p:54:p, space :::p, par b {comp label1::b:p:36:p, comp code::b:p:36:p}, space :p:24:p, par b {comp label3::b:p:42:p, comp equite::b:p:46:p}, space :p:28:p, par b {comp label4::b:p:42:p, comp boss::b:p:42:p}, space :p:26:p, par b {comp address::b:p:42:p, comp label5::b::46:x}, space :p:26:p, par b {comp date::b:p:42:p, comp label6::b:p:42:p}, space s:::p, par l {seq l {comp label7:::p:46:p, space :p:18:p}, seq t {comp fix:::p:46:p, space :::p}}, par b {comp label8::b:p:46:p, comp tax::b:p:46:p}, space s:::p, comp button1:::p::p, space :p:111:p}}"
 		} ) {
 			name: "this"
 			"title": "Accounting"
@@ -27,7 +27,7 @@ new FormModel {
 				"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "name"
+				name: "code"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
@@ -41,7 +41,7 @@ new FormModel {
 				"font": #SwingDerivedFont1
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "email"
+				name: "boss"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
@@ -49,7 +49,7 @@ new FormModel {
 				"font": #SwingDerivedFont0
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "phone"
+				name: "address"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
@@ -57,7 +57,7 @@ new FormModel {
 				"font": #SwingDerivedFont0
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "activity"
+				name: "date"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
@@ -70,13 +70,13 @@ new FormModel {
 				"font": #SwingDerivedFont0
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {
-				name: "spinner1"
+				name: "fix"
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {
-				name: "spinner2"
+				name: "tax"
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {
-				name: "spinner3"
+				name: "equite"
 			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"

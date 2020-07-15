@@ -1,5 +1,13 @@
+package graphic;
+
+import costumer.Instrument;
+import costumer.MAIN;
+import costumer.Project;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -18,19 +26,35 @@ public class Add_Instrument extends JFrame {
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		Login login = new Login();
+		login.setVisible(true);
 	}
 
 	private void menuItem2ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		AccountingSearch accountingSearch = new AccountingSearch();
+		accountingSearch.setVisible(true);
 	}
 
 	private void menuItem3ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
-	private void button1ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+	private void button1ActionPerformed(ActionEvent e) throws Exception {
+		Instrument instrument = new Instrument(date.getText() , String.valueOf(price.getValue()) , s1.getText(), s2.getText());
+
+		TreeMap<String , String > nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
+		String path = nameToPath.get(name.getText());
+		MAIN.WRITE_OBJECT(new File(path + "/" + name.getText() + "/Instruments/" + s1.getText()+"_"+s2.getText()+".txt") , instrument);
+	}
+
+	private void button2ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
 	private void initComponents() {
@@ -43,16 +67,16 @@ public class Add_Instrument extends JFrame {
 		label2 = new JLabel();
 		label1 = new JLabel();
 		label3 = new JLabel();
-		name = new JTextField();
+		date = new JTextField();
 		button1 = new JButton();
 		label4 = new JLabel();
-		email = new JTextField();
-		spinner3 = new JSpinner();
+		s1 = new JTextField();
+		price = new JSpinner();
 		label5 = new JLabel();
 		button2 = new JButton();
 		label6 = new JLabel();
-		email2 = new JTextField();
-		email3 = new JTextField();
+		s2 = new JTextField();
+		name = new JTextField();
 		label7 = new JLabel();
 
 		//======== this ========
@@ -103,7 +127,13 @@ public class Add_Instrument extends JFrame {
 		//---- button1 ----
 		button1.setText("Add");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
-		button1.addActionListener(e -> button1ActionPerformed(e));
+		button1.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		//---- label4 ----
 		label4.setText("Side1's name :");
@@ -115,7 +145,14 @@ public class Add_Instrument extends JFrame {
 		//---- button2 ----
 		button2.setText("Done");
 		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
-		button2.addActionListener(e -> button1ActionPerformed(e));
+		button2.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			button2ActionPerformed(e);
+		});
 
 		//---- label6 ----
 		label6.setText("Side2's name :");
@@ -141,7 +178,7 @@ public class Add_Instrument extends JFrame {
 								.addGroup(contentPaneLayout.createSequentialGroup()
 									.addComponent(label7, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE)
 									.addGap(30, 30, 30)
-									.addComponent(email3, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))
+									.addComponent(name, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))
 								.addGroup(contentPaneLayout.createSequentialGroup()
 									.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 										.addComponent(label1, GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
@@ -151,10 +188,10 @@ public class Add_Instrument extends JFrame {
 									.addGap(30, 30, 30)
 									.addGroup(contentPaneLayout.createParallelGroup()
 										.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-											.addComponent(name, GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-											.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
-											.addComponent(email, GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
-										.addComponent(email2, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))))
+											.addComponent(date, GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+											.addComponent(price, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE)
+											.addComponent(s1, GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
+										.addComponent(s2, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE))))
 							.addGap(28, 28, 28))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addGroup(contentPaneLayout.createParallelGroup()
@@ -176,26 +213,26 @@ public class Add_Instrument extends JFrame {
 					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(date, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 					.addGap(28, 28, 28)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(price, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(email, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(s1, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addComponent(label6, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(email2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+						.addComponent(s2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addComponent(label7, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addGroup(contentPaneLayout.createSequentialGroup()
 							.addGap(4, 4, 4)
-							.addComponent(email3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(name, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)))
 					.addGap(18, 18, 18)
 					.addComponent(button1)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -218,16 +255,16 @@ public class Add_Instrument extends JFrame {
 	private JLabel label2;
 	private JLabel label1;
 	private JLabel label3;
-	private JTextField name;
+	private JTextField date;
 	private JButton button1;
 	private JLabel label4;
-	private JTextField email;
-	private JSpinner spinner3;
+	private JTextField s1;
+	private JSpinner price;
 	private JLabel label5;
 	private JButton button2;
 	private JLabel label6;
-	private JTextField email2;
-	private JTextField email3;
+	private JTextField s2;
+	private JTextField name;
 	private JLabel label7;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -81,8 +81,8 @@ public class Accountant_fact implements Computation{
                 File file = new File(path + "/" + fact_name+"/Attributes/fixes.txt");
                 try {
                     cost += (Double)MAIN.READ_OBJECT(file);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception ignored) {
+
                 }
             }
         });
@@ -93,8 +93,7 @@ public class Accountant_fact implements Computation{
                 File file = new File(path + "/" + fact_name +"/Attributes/taxes.txt");
                 try {
                     cost += (Double)MAIN.READ_OBJECT(file);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception ignored) {
                 }
             }
         });

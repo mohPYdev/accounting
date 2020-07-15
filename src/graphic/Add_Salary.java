@@ -1,5 +1,12 @@
+package graphic;
+
+import costumer.MAIN;
+import costumer.Salary;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -18,19 +25,36 @@ public class Add_Salary extends JFrame {
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		Login login = new Login();
+		login.setVisible(true);
 	}
 
 	private void menuItem2ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		AccountingSearch accountingSearch = new AccountingSearch();
+		accountingSearch.setVisible(true);
 	}
 
 	private void menuItem3ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
-	private void button1ActionPerformed(ActionEvent e) {
-		// TODO add your code here
+	private void button1ActionPerformed(ActionEvent e) throws Exception {
+
+		Salary salary = new Salary(date.getText() , String.valueOf(price.getValue()) , emp_name.getText());
+
+		TreeMap<String , String > nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
+		String path = nameToPath.get(name.getText());
+		MAIN.WRITE_OBJECT(new File(path + "/" + name.getText() + "/Salaries/" + emp_name.getText()+".txt") , salary);
+	}
+
+	private void button2ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
 	private void initComponents() {
@@ -43,15 +67,15 @@ public class Add_Salary extends JFrame {
 		label2 = new JLabel();
 		label1 = new JLabel();
 		label3 = new JLabel();
-		name = new JTextField();
+		date = new JTextField();
 		button1 = new JButton();
 		label4 = new JLabel();
-		email = new JTextField();
-		spinner3 = new JSpinner();
+		emp_name = new JTextField();
+		price = new JSpinner();
 		label5 = new JLabel();
 		button2 = new JButton();
 		label6 = new JLabel();
-		email2 = new JTextField();
+		name = new JTextField();
 
 		//======== this ========
 		setTitle("Accounting");
@@ -101,7 +125,13 @@ public class Add_Salary extends JFrame {
 		//---- button1 ----
 		button1.setText("Add");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
-		button1.addActionListener(e -> button1ActionPerformed(e));
+		button1.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		//---- label4 ----
 		label4.setText("Employee's name : ");
@@ -113,7 +143,14 @@ public class Add_Salary extends JFrame {
 		//---- button2 ----
 		button2.setText("Done");
 		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
-		button2.addActionListener(e -> button1ActionPerformed(e));
+		button2.addActionListener(e -> {
+			try {
+				button1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			button2ActionPerformed(e);
+		});
 
 		//---- label6 ----
 		label6.setText("Facility's name : ");
@@ -147,10 +184,10 @@ public class Add_Salary extends JFrame {
 											.addComponent(label3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 									.addGap(30, 30, 30)
 									.addGroup(contentPaneLayout.createParallelGroup()
-										.addComponent(email, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+										.addComponent(emp_name, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+										.addComponent(date, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
 										.addComponent(name, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-										.addComponent(email2, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-										.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))))
+										.addComponent(price, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))))
 							.addGap(28, 28, 28))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
 							.addComponent(label5, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
@@ -162,20 +199,20 @@ public class Add_Salary extends JFrame {
 					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
 					.addGap(16, 16, 16)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(date, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
 						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
 					.addGap(28, 28, 28)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+						.addComponent(price, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addGap(38, 38, 38)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(email, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+						.addComponent(emp_name, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label6, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(email2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+						.addComponent(name, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(button1)
 					.addGap(27, 27, 27)
@@ -198,14 +235,14 @@ public class Add_Salary extends JFrame {
 	private JLabel label2;
 	private JLabel label1;
 	private JLabel label3;
-	private JTextField name;
+	private JTextField date;
 	private JButton button1;
 	private JLabel label4;
-	private JTextField email;
-	private JSpinner spinner3;
+	private JTextField emp_name;
+	private JSpinner price;
 	private JLabel label5;
 	private JButton button2;
 	private JLabel label6;
-	private JTextField email2;
+	private JTextField name;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
