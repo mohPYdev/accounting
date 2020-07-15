@@ -1,8 +1,13 @@
 package graphic;
 
+import costumer.MAIN;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 /*
@@ -19,7 +24,7 @@ public class FileChooser extends JFrame {
 		initComponents();
 	}
 
-	private void fileChooser1ActionPerformed(ActionEvent e) {
+	private void fileChooser1ActionPerformed(ActionEvent e) throws Exception {
 		this.dispose();
 	}
 
@@ -34,7 +39,13 @@ public class FileChooser extends JFrame {
 		fileChooser1.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		fileChooser1.setDialogType(JFileChooser.SAVE_DIALOG);
 		fileChooser1.setDialogTitle("choose a folder to save");
-		fileChooser1.addActionListener(e -> fileChooser1ActionPerformed(e));
+		fileChooser1.addActionListener(e -> {
+			try {
+				fileChooser1ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);

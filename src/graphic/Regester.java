@@ -1,9 +1,12 @@
 package graphic;
 
+import costumer.MAIN;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.TreeMap;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
@@ -18,6 +21,7 @@ import javax.swing.LayoutStyle;
  */
 public class Regester extends JFrame {
 	ArrayList<String> names = new ArrayList<>();
+	TreeMap<String , String> nameToPath;
 	public Regester() {
 		initComponents();
 	}
@@ -36,10 +40,34 @@ public class Regester extends JFrame {
 
 	private void button1ActionPerformed(ActionEvent e) {
 		this.dispose();
+		String path = nameToPath.get(name.getText());
+		new File(path , name.getText()).mkdir();
 		if(comboBox1.getSelectedIndex() == 0)
 		{
+			new File(path + "/" + name.getText() , "Instruments");
+			new File(path + "/" + name.getText() , "Factors_expense");
+			new File(path + "/" + name.getText() , "Factors_income");
+			new File(path + "/" + name.getText() , "Bills");
+			new File(path + "/" + name.getText() , "Salaries");
+			new File(path + "/" + name.getText() , "Attributes");
 			Factory_Reg factory_reg = new Factory_Reg(names);
 			factory_reg.setVisible(true);
+		}
+		else if(comboBox1.getSelectedIndex() == 1){
+			new File(path + "/" + name.getText() , "Bills");
+			new File(path + "/" + name.getText() , "Projects");
+			new File(path + "/" + name.getText() , "Salaries");
+			new File(path + "/" + name.getText() , "Attributes");
+			Company_Reg company_reg = new Company_Reg(names);
+			company_reg.setVisible(true);
+		}
+		else {
+			new File(path + "/" + name.getText(), "Factors");
+			new File(path + "/" + name.getText() , "Instruments");
+			new File(path + "/" + name.getText() , "Salaries");
+			new File(path + "/" + name.getText() , "Attributes");
+			Municipality_Reg municipality_reg = new Municipality_Reg();
+			municipality_reg.setVisible(true);
 		}
 	}
 
@@ -48,9 +76,16 @@ public class Regester extends JFrame {
 		emp.setText("");
 	}
 
-	private void button3ActionPerformed(ActionEvent e) {
+	private void button3ActionPerformed(ActionEvent e) throws Exception {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setVisible(true);
+		File file = new File("paths.txt");
+		if(file.exists())
+		{
+			nameToPath = MAIN.READ_OBJECT(file);
+		}
+		nameToPath.put(name.getText() , fileChooser.fileChooser1.getSelectedFile().getAbsolutePath());
+		MAIN.WRITE_OBJECT(file , nameToPath);
 	}
 
 	private void initComponents() {
@@ -159,7 +194,13 @@ public class Regester extends JFrame {
 
 		//---- button3 ----
 		button3.setText("Choose");
-		button3.addActionListener(e -> button3ActionPerformed(e));
+		button3.addActionListener(e -> {
+			try {
+				button3ActionPerformed(e);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);

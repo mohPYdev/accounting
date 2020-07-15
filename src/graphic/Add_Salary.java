@@ -1,11 +1,10 @@
-package graphic;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle;
 /*
- * Created by JFormDesigner on Tue Jul 14 14:52:11 IRDT 2020
+ * Created by JFormDesigner on Tue Jul 14 15:57:14 IRDT 2020
  */
 
 
@@ -13,27 +12,21 @@ import javax.swing.GroupLayout;
 /**
  * @author mohamd
  */
-public class Municipality_Reg extends JFrame {
-	public Municipality_Reg() {
+public class Add_Salary extends JFrame {
+	public Add_Salary() {
 		initComponents();
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {
-		this.dispose();
-		Login login = new Login();
-		login.setVisible(true);
+		// TODO add your code here
 	}
 
 	private void menuItem2ActionPerformed(ActionEvent e) {
-		this.dispose();
-		AccountingSearch accountingSearch = new AccountingSearch();
-		accountingSearch.setVisible(true);
+		// TODO add your code here
 	}
 
 	private void menuItem3ActionPerformed(ActionEvent e) {
-		this.dispose();
-		Regester regester = new Regester();
-		regester.setVisible(true);
+		// TODO add your code here
 	}
 
 	private void button1ActionPerformed(ActionEvent e) {
@@ -54,9 +47,11 @@ public class Municipality_Reg extends JFrame {
 		button1 = new JButton();
 		label4 = new JLabel();
 		email = new JTextField();
-		label5 = new JLabel();
-		phone = new JTextField();
 		spinner3 = new JSpinner();
+		label5 = new JLabel();
+		button2 = new JButton();
+		label6 = new JLabel();
+		email2 = new JTextField();
 
 		//======== this ========
 		setTitle("Accounting");
@@ -91,82 +86,103 @@ public class Municipality_Reg extends JFrame {
 		setJMenuBar(menuBar1);
 
 		//---- label2 ----
-		label2.setText("MUNICIPALITY");
+		label2.setText("sALARY");
 		label2.setFont(new Font("Stencil", Font.BOLD, 44));
 		label2.setEnabled(false);
 
 		//---- label1 ----
-		label1.setText("Receivals : ");
+		label1.setText("date : ");
 		label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 9f));
 
 		//---- label3 ----
-		label3.setText("Fund : ");
+		label3.setText("Price : ");
 		label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 9f));
 
 		//---- button1 ----
-		button1.setText("Register");
+		button1.setText("Add");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
 		button1.addActionListener(e -> button1ActionPerformed(e));
 
 		//---- label4 ----
-		label4.setText("Mayor's name : ");
+		label4.setText("Employee's name : ");
 		label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 9f));
 
 		//---- label5 ----
-		label5.setText("Region : ");
-		label5.setFont(label5.getFont().deriveFont(label5.getFont().getSize() + 9f));
+		label5.setText("when you are done click on the button below");
+
+		//---- button2 ----
+		button2.setText("Done");
+		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
+		button2.addActionListener(e -> button1ActionPerformed(e));
+
+		//---- label6 ----
+		label6.setText("Facility's name : ");
+		label6.setFont(label6.getFont().deriveFont(label6.getFont().getSize() + 9f));
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGap(164, 164, 164)
-					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(85, Short.MAX_VALUE))
+					.addGroup(contentPaneLayout.createParallelGroup()
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addGap(247, 247, 247)
+							.addComponent(button2, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE))
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addGap(228, 228, 228)
+							.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(283, Short.MAX_VALUE))
 				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addContainerGap(43, Short.MAX_VALUE)
+					.addContainerGap(33, Short.MAX_VALUE)
 					.addGroup(contentPaneLayout.createParallelGroup()
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-								.addComponent(label4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(label3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(label5, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 276, GroupLayout.PREFERRED_SIZE))
-							.addGap(30, 30, 30)
-							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-								.addComponent(name, GroupLayout.Alignment.LEADING)
-								.addComponent(email, GroupLayout.Alignment.LEADING)
-								.addComponent(phone, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
-								.addComponent(spinner3, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))
-							.addGap(27, 27, 27))
+							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
+								.addGroup(contentPaneLayout.createSequentialGroup()
+									.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+										.addComponent(label6, GroupLayout.PREFERRED_SIZE, 285, GroupLayout.PREFERRED_SIZE)
+										.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+											.addComponent(label4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(label1, GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+											.addComponent(label3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+									.addGap(30, 30, 30)
+									.addGroup(contentPaneLayout.createParallelGroup()
+										.addComponent(email, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+										.addComponent(name, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+										.addComponent(email2, GroupLayout.PREFERRED_SIZE, 279, GroupLayout.PREFERRED_SIZE)
+										.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 139, GroupLayout.PREFERRED_SIZE))))
+							.addGap(28, 28, 28))
 						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-							.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-							.addGap(254, 254, 254))))
+							.addComponent(label5, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
+							.addGap(79, 79, 79))))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-						.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
-					.addGap(24, 24, 24)
+					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+					.addGap(16, 16, 16)
+					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(name, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+					.addGap(28, 28, 28)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-						.addComponent(phone, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
-					.addGap(30, 30, 30)
+						.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+					.addGap(38, 38, 38)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(email, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
-					.addGap(22, 22, 22)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(label5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(spinner3, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
 					.addGap(18, 18, 18)
+					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(label6, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+						.addComponent(email2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(button1)
-					.addGap(79, 79, 79))
+					.addGap(27, 27, 27)
+					.addComponent(label5)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(button2)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -186,8 +202,10 @@ public class Municipality_Reg extends JFrame {
 	private JButton button1;
 	private JLabel label4;
 	private JTextField email;
-	private JLabel label5;
-	private JTextField phone;
 	private JSpinner spinner3;
+	private JLabel label5;
+	private JButton button2;
+	private JLabel label6;
+	private JTextField email2;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
