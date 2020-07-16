@@ -314,14 +314,7 @@ public class AccountingSearch extends JFrame {
 		//---- button2 ----
 		button2.setText("show info");
 		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
-		button2.addActionListener(e -> {
-			try {
-				button1ActionPerformed(e);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			button2ActionPerformed(e);
-		});
+		button2.addActionListener(e -> button2ActionPerformed(e));
 
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
@@ -340,19 +333,19 @@ public class AccountingSearch extends JFrame {
 								.addComponent(textField2, GroupLayout.Alignment.TRAILING)
 								.addComponent(textField1))
 							.addContainerGap())
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+							.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addGroup(contentPaneLayout.createSequentialGroup()
+									.addGap(0, 176, Short.MAX_VALUE)
+									.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE))
+								.addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addGap(119, 119, 119))))
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGap(218, 218, 218)
+					.addGap(187, 187, 187)
 					.addComponent(button2, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGap(72, 72, 72)
 					.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(237, Short.MAX_VALUE))
-				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addContainerGap(236, Short.MAX_VALUE)
-					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
-					.addGap(110, 110, 110))
+					.addContainerGap(205, Short.MAX_VALUE))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
@@ -371,9 +364,9 @@ public class AccountingSearch extends JFrame {
 						.addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(button2)
-						.addComponent(button1))
+					.addGroup(contentPaneLayout.createParallelGroup()
+						.addComponent(button1)
+						.addComponent(button2))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		pack();

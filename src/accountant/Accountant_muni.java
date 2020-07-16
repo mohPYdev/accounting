@@ -19,21 +19,23 @@ public class Accountant_muni implements Computation {
     @Override
     synchronized public double costComputer(String path) throws InterruptedException {
         this.cost = 0;
+        Object obj = new Object();
 
 // SALARIES
 
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                File file = new File(path + "/" + muni_name + "/Salaries");
-                for (File f : file.listFiles())
-                {
-                    try {
-                        Salary salary = (Salary) MAIN.READ_OBJECT(f);
-                        cost += Double.parseDouble(salary.getPrice());
+                synchronized (obj) {
+                    File file = new File(path + "/" + muni_name + "/Salaries");
+                    for (File f : file.listFiles()) {
+                        try {
+                            Salary salary = (Salary) MAIN.READ_OBJECT(f);
+                            cost += Double.parseDouble(salary.getPrice());
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -43,14 +45,15 @@ public class Accountant_muni implements Computation {
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                File file = new File(path + "/" + muni_name + "/Factors");
-                for (File f : file.listFiles())
-                {
-                    try {
-                        Factor factor = (Factor) MAIN.READ_OBJECT(f);
-                        cost += factor.getCost();
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                synchronized (obj) {
+                    File file = new File(path + "/" + muni_name + "/Factors");
+                    for (File f : file.listFiles()) {
+                        try {
+                            Factor factor = (Factor) MAIN.READ_OBJECT(f);
+                            cost += factor.getCost();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -61,14 +64,15 @@ public class Accountant_muni implements Computation {
         Thread t3 = new Thread(new Runnable() {
             @Override
             public void run() {
-                File file = new File(path + "/" + muni_name + "/Instruments");
-                for (File f : file.listFiles())
-                {
-                    try {
-                        Instrument instrument = (Instrument) MAIN.READ_OBJECT(f);
-                        cost += Double.parseDouble(instrument.getPrice());
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                synchronized (obj) {
+                    File file = new File(path + "/" + muni_name + "/Instruments");
+                    for (File f : file.listFiles()) {
+                        try {
+                            Instrument instrument = (Instrument) MAIN.READ_OBJECT(f);
+                            cost += Double.parseDouble(instrument.getPrice());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -91,18 +95,20 @@ public class Accountant_muni implements Computation {
 
     @Override
     synchronized public double incomeComputer(String path) throws InterruptedException {
-
-        income = 0;
+        this.income = 0;
+        Object obj = new Object();
 
 // RECEIVES
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                File file = new File(path + "/" + muni_name +"/Attributes/receives.txt");
-                try {
-                    income += (Double)MAIN.READ_OBJECT(file);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                synchronized (obj) {
+                    File file = new File(path + "/" + muni_name + "/Attributes/receives.txt");
+                    try {
+                        income += (Double) MAIN.READ_OBJECT(file);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -111,11 +117,13 @@ public class Accountant_muni implements Computation {
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                File file = new File(path + "/" + muni_name +"/Attributes/fund.txt");
-                try {
-                    income += (Double)MAIN.READ_OBJECT(file);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                synchronized (obj) {
+                    File file = new File(path + "/" + muni_name + "/Attributes/fund.txt");
+                    try {
+                        income += (Double) MAIN.READ_OBJECT(file);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

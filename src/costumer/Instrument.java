@@ -1,6 +1,8 @@
 package costumer;
 
-public class Instrument {
+import java.io.Serializable;
+
+public class Instrument implements Serializable {
 
     String date , price;
     String side1_name , side2_name;

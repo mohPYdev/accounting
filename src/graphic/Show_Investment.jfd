@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:50:p, comp label1:::p:242:p, space :p:53:p, comp textField1::::295:x, space :::p}, seq t {space ::189:x, comp label2:::p:406:p, space :p:60:p}, seq l {space :p:245:p, comp button1:::p:144:p, space ::266:x}}"
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:50:p, comp label1:::p:242:p, space :p:53:p, comp textField1::::295:x}, seq {space :p:245:p, comp button1:::p:144:p, space :0:251:x}}, space :::p}, seq t {space :0:112:x, comp label2:::p:464:p, space :p:79:p}}"
 			"$verticalGroup": "par l {seq l {comp label2:::p:55:p, space :p:18:p, par b {comp label1::b:p:36:p, comp textField1::b:p::p}, space u:::p, comp button1:::p::p, space ::12:x}}"
 		} ) {
 			name: "this"
@@ -12,7 +12,7 @@ new FormModel {
 			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "fund info"
+				"text": "investment info"
 				"font": new java.awt.Font( "Stencil", 1, 44 )
 				"enabled": false
 			} )

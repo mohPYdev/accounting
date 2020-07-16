@@ -1,8 +1,7 @@
 package graphic;
 
-import costumer.Factor;
 import costumer.MAIN;
-import costumer.Municipality;
+import graphic.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +11,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 /*
- * Created by JFormDesigner on Wed Jul 15 18:56:19 IRDT 2020
+ * Created by JFormDesigner on Thu Jul 16 18:01:51 IRDT 2020
  */
 
 
@@ -20,8 +19,8 @@ import javax.swing.LayoutStyle;
 /**
  * @author mohamd
  */
-public class Show_Factor extends JFrame {
-	public Show_Factor() {
+public class Show_Investment extends JFrame {
+	public Show_Investment() {
 		initComponents();
 	}
 
@@ -40,23 +39,8 @@ public class Show_Factor extends JFrame {
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
 		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(textField1.getText());
-
-		Factor factor;
-		if(comboBox1.getSelectedIndex() == 0)
-		{
-			if(comboBox2.getSelectedIndex() == 0) {
-				factor = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Factors_income/" + textField2.getText() + ".txt"));
-			}
-			else{
-				factor = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Factors_expense/" + textField2.getText() + ".txt"));
-			}
-		}
-		else {
-			factor = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Factors/" + textField2.getText() + ".txt"));
-		}
-		this.dispose();
-		Factor_info factor_info = new Factor_info(factor);
-		factor_info.setVisible(true);
+		Double invest = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Attributes/investments.txt"));
+		JOptionPane.showMessageDialog(rootPane , "price :\t" + invest);
 	}
 
 	private void menuItem3ActionPerformed(ActionEvent e) {
@@ -138,14 +122,8 @@ public class Show_Factor extends JFrame {
 		menuItem12 = new JMenuItem();
 		label2 = new JLabel();
 		label1 = new JLabel();
-		label3 = new JLabel();
 		textField1 = new JTextField();
-		comboBox1 = new JComboBox<>();
 		button1 = new JButton();
-		label4 = new JLabel();
-		comboBox2 = new JComboBox<>();
-		label5 = new JLabel();
-		textField2 = new JTextField();
 
 		//======== this ========
 		setTitle("Accounting");
@@ -231,7 +209,7 @@ public class Show_Factor extends JFrame {
 		setJMenuBar(menuBar1);
 
 		//---- label2 ----
-		label2.setText("factor info");
+		label2.setText("investment info");
 		label2.setFont(new Font("Stencil", Font.BOLD, 44));
 		label2.setEnabled(false);
 
@@ -239,18 +217,8 @@ public class Show_Factor extends JFrame {
 		label1.setText("Name of the facility : ");
 		label1.setFont(label1.getFont().deriveFont(label1.getFont().getSize() + 9f));
 
-		//---- label3 ----
-		label3.setText("Kind of facility : ");
-		label3.setFont(label3.getFont().deriveFont(label3.getFont().getSize() + 9f));
-
-		//---- comboBox1 ----
-		comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
-			"Factory",
-			"Municipality"
-		}));
-
 		//---- button1 ----
-		button1.setText("calculate");
+		button1.setText("show");
 		button1.setFont(button1.getFont().deriveFont(button1.getFont().getSize() + 5f));
 		button1.addActionListener(e -> {
 			try {
@@ -260,88 +228,38 @@ public class Show_Factor extends JFrame {
 			}
 		});
 
-		//---- label4 ----
-		label4.setText("Type  : ");
-		label4.setFont(label4.getFont().deriveFont(label4.getFont().getSize() + 9f));
-
-		//---- comboBox2 ----
-		comboBox2.setModel(new DefaultComboBoxModel<>(new String[] {
-			"Sale",
-			"Buy"
-		}));
-
-		//---- label5 ----
-		label5.setText("ID : ");
-		label5.setFont(label5.getFont().deriveFont(label5.getFont().getSize() + 9f));
-
 		GroupLayout contentPaneLayout = new GroupLayout(contentPane);
 		contentPane.setLayout(contentPaneLayout);
 		contentPaneLayout.setHorizontalGroup(
 			contentPaneLayout.createParallelGroup()
-				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-					.addGap(0, 174, Short.MAX_VALUE)
-					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE)
-					.addGap(40, 40, 40))
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(0, 0, Short.MAX_VALUE)
-							.addComponent(label5, GroupLayout.PREFERRED_SIZE, 268, GroupLayout.PREFERRED_SIZE))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(26, 26, 26)
-							.addGroup(contentPaneLayout.createParallelGroup()
-								.addComponent(label3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addGroup(contentPaneLayout.createSequentialGroup()
-									.addComponent(label1, GroupLayout.PREFERRED_SIZE, 268, GroupLayout.PREFERRED_SIZE)
-									.addGap(0, 0, Short.MAX_VALUE))
-								.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-									.addGap(0, 0, Short.MAX_VALUE)
-									.addComponent(label4, GroupLayout.PREFERRED_SIZE, 268, GroupLayout.PREFERRED_SIZE)))))
 					.addGroup(contentPaneLayout.createParallelGroup()
-						.addGroup(contentPaneLayout.createParallelGroup()
-							.addGroup(contentPaneLayout.createSequentialGroup()
-								.addGap(26, 26, 26)
-								.addGroup(contentPaneLayout.createParallelGroup()
-									.addComponent(textField1, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE)
-									.addComponent(comboBox1)))
-							.addGroup(contentPaneLayout.createSequentialGroup()
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(comboBox2, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-							.addGap(26, 26, 26)
-							.addComponent(textField2, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(27, Short.MAX_VALUE))
-				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addGap(232, 232, 232)
-					.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(244, Short.MAX_VALUE))
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addGap(50, 50, 50)
+							.addComponent(label1, GroupLayout.PREFERRED_SIZE, 242, GroupLayout.PREFERRED_SIZE)
+							.addGap(53, 53, 53)
+							.addComponent(textField1, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))
+						.addGroup(contentPaneLayout.createSequentialGroup()
+							.addGap(245, 245, 245)
+							.addComponent(button1, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
+							.addGap(0, 251, Short.MAX_VALUE)))
+					.addContainerGap())
+				.addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+					.addGap(0, 112, Short.MAX_VALUE)
+					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 464, GroupLayout.PREFERRED_SIZE)
+					.addGap(79, 79, 79))
 		);
 		contentPaneLayout.setVerticalGroup(
 			contentPaneLayout.createParallelGroup()
 				.addGroup(contentPaneLayout.createSequentialGroup()
-					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
-					.addGroup(contentPaneLayout.createParallelGroup()
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(26, 26, 26)
-							.addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-							.addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(contentPaneLayout.createSequentialGroup()
-							.addGap(21, 21, 21)
-							.addComponent(label1)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(label3, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(label4)
-						.addComponent(comboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addComponent(label2, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 					.addGap(18, 18, 18)
 					.addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label5))
-					.addGap(18, 18, 18)
+						.addComponent(label1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addComponent(button1)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(12, Short.MAX_VALUE))
 		);
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -366,13 +284,7 @@ public class Show_Factor extends JFrame {
 	private JMenuItem menuItem12;
 	private JLabel label2;
 	private JLabel label1;
-	private JLabel label3;
 	private JTextField textField1;
-	private JComboBox<String> comboBox1;
 	private JButton button1;
-	private JLabel label4;
-	private JComboBox<String> comboBox2;
-	private JLabel label5;
-	private JTextField textField2;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

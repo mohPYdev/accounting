@@ -1,6 +1,8 @@
 package costumer;
 
-public class Receivals  {
+import java.io.Serializable;
+
+public class Receivals implements Serializable {
     private String ID , date  , reason ;
     private int cost;
 

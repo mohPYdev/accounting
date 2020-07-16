@@ -1,6 +1,8 @@
 package costumer;
 
-public class Project {
+import java.io.Serializable;
+
+public class Project implements Serializable {
 
     private String activity_kind , price , date , name;
 

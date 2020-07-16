@@ -1,6 +1,8 @@
 package costumer;
 
-public class Bill {
+import java.io.Serializable;
+
+public class Bill implements Serializable {
     public enum BillType{
         WATER , GAS , POWER , TELEPHONE
     }

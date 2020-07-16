@@ -1,8 +1,9 @@
 package costumer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Factor {
+public class Factor implements Serializable {
     public enum types{
         BUY , SALE
     }

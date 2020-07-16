@@ -1,10 +1,11 @@
 package costumer;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-public class Factory extends Costumer  {
+public class Factory extends Costumer implements Serializable {
 
 
     ArrayList<Instrument> instruments = new ArrayList<>();

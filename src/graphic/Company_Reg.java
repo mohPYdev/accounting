@@ -53,12 +53,15 @@ public class Company_Reg extends JFrame {
 
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
 		Company company = new Company(name , email , phone , activity , names , Integer.parseInt(code.getText()) , boss.getText() ,
-				addrss.getText() , date.getText() , Integer.parseInt(other.getText()), (Integer) invest.getValue());
+				addrss.getText() , date.getText() , Double.parseDouble(other.getText()), (int) invest.getValue());
 		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(name);
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/other_expenses.txt") , company.getOther_expence());
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/investments.txt") , company.getInvestment());
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/info.txt") , company);
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
 	private void initComponents() {

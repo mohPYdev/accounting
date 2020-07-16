@@ -61,6 +61,9 @@ public class Municipality_Reg extends JFrame {
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/receives.txt") , receivals.getCost());
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/fund.txt") , municipality.getFund());
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/info.txt") , municipality);
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
 	private void initComponents() {

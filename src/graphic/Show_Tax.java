@@ -96,6 +96,12 @@ public class Show_Tax extends JFrame {
 		show_fix.setVisible(true);
 	}
 
+	private void menuItem12ActionPerformed(ActionEvent e) {
+		this.dispose();
+		Show_Investment show_investment = new Show_Investment();
+		show_investment.setVisible(true);
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		menuBar1 = new JMenuBar();
@@ -112,6 +118,7 @@ public class Show_Tax extends JFrame {
 		menuItem9 = new JMenuItem();
 		menuItem10 = new JMenuItem();
 		menuItem11 = new JMenuItem();
+		menuItem12 = new JMenuItem();
 		label2 = new JLabel();
 		label1 = new JLabel();
 		textField1 = new JTextField();
@@ -190,6 +197,11 @@ public class Show_Tax extends JFrame {
 				menuItem11.setText("fix");
 				menuItem11.addActionListener(e -> menuItem11ActionPerformed(e));
 				menu2.add(menuItem11);
+
+				//---- menuItem12 ----
+				menuItem12.setText("investment");
+				menuItem12.addActionListener(e -> menuItem12ActionPerformed(e));
+				menu2.add(menuItem12);
 			}
 			menuBar1.add(menu2);
 		}
@@ -266,6 +278,7 @@ public class Show_Tax extends JFrame {
 	private JMenuItem menuItem9;
 	private JMenuItem menuItem10;
 	private JMenuItem menuItem11;
+	private JMenuItem menuItem12;
 	private JLabel label2;
 	private JLabel label1;
 	private JTextField textField1;

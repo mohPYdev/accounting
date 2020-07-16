@@ -1,10 +1,11 @@
 package costumer;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-public class Municipality extends Costumer  {
+public class Municipality extends Costumer implements Serializable {
 
     Receivals Receivals_pointer;
     ArrayList<Factor> factors = new ArrayList<>();

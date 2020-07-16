@@ -60,6 +60,9 @@ public class Factory_Reg extends JFrame {
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/fixes.txt") , factory.getFix());
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/taxes.txt") , factory.getTax());
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/info.txt") , factory);
+		this.dispose();
+		Regester regester = new Regester();
+		regester.setVisible(true);
 	}
 
 	private void initComponents() {

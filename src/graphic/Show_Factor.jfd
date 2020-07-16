@@ -129,6 +129,11 @@ new FormModel {
 						"text": "fix"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem11ActionPerformed", true ) )
 					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem12"
+						"text": "investment"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem12ActionPerformed", true ) )
+					} )
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {
