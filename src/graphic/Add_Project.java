@@ -1,8 +1,6 @@
 package graphic;
 
-import costumer.MAIN;
-import costumer.Project;
-import costumer.Salary;
+import costumer.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -44,11 +42,21 @@ public class Add_Project extends JFrame {
 	}
 
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
-		Project project = new Project(type.getText() , String.valueOf(price.getValue()) , date.getText(), name.getText());
-
-		TreeMap<String , String > nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
+		TreeMap<String, String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(fname.getText());
-		MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Projects/" + name.getText()+".txt") , project);
+		Costumer costumer = MAIN.READ_OBJECT(new File(path + "/" + fname.getText() + "/Attributes/info.txt"));
+		if (costumer instanceof Company) {
+			Project project = new Project(type.getText(), String.valueOf(price.getValue()), date.getText(), name.getText());
+			MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Projects/" + name.getText() + ".txt"), project);
+		}
+		else{
+			try{
+				throw new InvalidData();
+			}catch (InvalidData ex)
+			{
+				JOptionPane.showMessageDialog(rootPane , ex.getMessage());
+			}
+		}
 	}
 
 	private void button2ActionPerformed(ActionEvent e) {

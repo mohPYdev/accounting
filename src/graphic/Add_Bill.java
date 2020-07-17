@@ -1,8 +1,6 @@
 package graphic;
 
-import costumer.Bill;
-import costumer.MAIN;
-import costumer.Project;
+import costumer.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -44,26 +42,36 @@ public class Add_Bill extends JFrame {
 	}
 
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
-		Bill.BillType type = Bill.BillType.WATER;
-		switch (comboBox1.getSelectedIndex()) {
-			case 0:
-				type = Bill.BillType.WATER;
-				break;
-			case 1:
-				type = Bill.BillType.GAS;
-				break;
-			case 2:
-				type = Bill.BillType.POWER;
-				break;
-			case 3:
-				type = Bill.BillType.TELEPHONE;
-				break;
-		}
-		Bill bill = new Bill(id.getText() , String.valueOf(price.getValue()) , date.getText(), type);
-
 		TreeMap<String , String > nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(name.getText());
-		MAIN.WRITE_OBJECT(new File(path + "/" + name.getText() + "/Bills/" + id.getText()+".txt") , bill);
+		Costumer costumer = MAIN.READ_OBJECT(new File(path + "/" + name.getText() + "/Attributes/info.txt"));
+		if(costumer instanceof Company || costumer instanceof Factory){
+			Bill.BillType type = Bill.BillType.WATER;
+			switch (comboBox1.getSelectedIndex()) {
+				case 0:
+					type = Bill.BillType.WATER;
+					break;
+				case 1:
+					type = Bill.BillType.GAS;
+					break;
+				case 2:
+					type = Bill.BillType.POWER;
+					break;
+				case 3:
+					type = Bill.BillType.TELEPHONE;
+					break;
+			}
+			Bill bill = new Bill(id.getText() , String.valueOf(price.getValue()) , date.getText(), type);
+			MAIN.WRITE_OBJECT(new File(path + "/" + name.getText() + "/Bills/" + id.getText()+".txt") , bill);
+		}
+		else{
+			try{
+				throw new InvalidData();
+			}catch (InvalidData ex)
+			{
+				JOptionPane.showMessageDialog(rootPane , ex.getMessage());
+			}
+		}
 	}
 
 	private void button2ActionPerformed(ActionEvent e) {

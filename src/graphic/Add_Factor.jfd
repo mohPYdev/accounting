@@ -51,7 +51,6 @@ new FormModel {
 				name: "button2"
 				"text": "Done"
 				"font": #SwingDerivedFont2
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {

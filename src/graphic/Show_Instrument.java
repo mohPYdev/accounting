@@ -39,7 +39,7 @@ public class Show_Instrument extends JFrame {
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
 		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(textField1.getText());
-		Instrument instrument = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Instruments/" + textField2.getText()+textField3.getText() +".txt"));
+		Instrument instrument = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Instruments/" + textField2.getText()+"_"+textField3.getText() +".txt"));
 		JOptionPane.showMessageDialog(rootPane , "price :\t" + instrument.getPrice() + "\ndate :\t" + instrument.getDate());
 	}
 

@@ -105,7 +105,7 @@ public class Accountant_muni implements Computation {
                 synchronized (obj) {
                     File file = new File(path + "/" + muni_name + "/Attributes/receives.txt");
                     try {
-                        income += (Double) MAIN.READ_OBJECT(file);
+                        income += (int) MAIN.READ_OBJECT(file);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

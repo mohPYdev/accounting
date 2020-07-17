@@ -54,7 +54,7 @@ public class Factory_Reg extends JFrame {
 
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
 		Factory factory = new Factory(name , email , phone , activity , names ,Integer.parseInt(code.getText()), (int)equite.getValue() ,
-				boss.getText() , address.getText() , date.getText(), (double)fix.getValue() , (double)fix.getValue());
+				boss.getText() , address.getText() , date.getText(), (int)fix.getValue() , (int)tax.getValue());
 		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(name);
 		MAIN.WRITE_OBJECT(new File(path + "/" + name + "/Attributes/fixes.txt") , factory.getFix());

@@ -38,7 +38,7 @@ public class Show_Receivals extends JFrame {
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
 		TreeMap<String , String> nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(textField1.getText());
-		Double receivals = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Attributes/receives.txt"));
+		int receivals = MAIN.READ_OBJECT(new File(path + "/" + textField1.getText() + "/Attributes/receives.txt"));
 		JOptionPane.showMessageDialog(rootPane , "price :\t" + receivals);
 	}
 

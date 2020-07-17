@@ -35,6 +35,7 @@ public class Factor_info extends JFrame {
 		this.dispose();
 		Show_Factor show_factor = new Show_Factor();
 		show_factor.setVisible(true);
+		textArea1.setText("");
 	}
 
 	private void initComponents() {

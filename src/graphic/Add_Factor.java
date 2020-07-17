@@ -66,7 +66,18 @@ public class Add_Factor extends JFrame {
 			MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Factors_expense/" + id.getText()+".txt") , factor);
 		else if(costumer instanceof Factory && type == Factor.types.SALE)
 			MAIN.WRITE_OBJECT(new File(path + "/" + fname.getText() + "/Factors_income/" + id.getText()+".txt") , factor);
-
+		else if (costumer instanceof Company)
+		{
+			try{
+				throw new InvalidData();
+			}catch (InvalidData ex)
+			{
+				JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+			}
+		}
+		this.dispose();
+		AccountingSearch accountingSearch = new AccountingSearch();
+		accountingSearch.setVisible(true);
 	}
 
 	private void initComponents() {
@@ -168,11 +179,6 @@ public class Add_Factor extends JFrame {
 		button2.setText("Done");
 		button2.setFont(button2.getFont().deriveFont(button2.getFont().getSize() + 5f));
 		button2.addActionListener(e -> {
-			try {
-				button1ActionPerformed(e);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
 			try {
 				button2ActionPerformed(e);
 			} catch (Exception ex) {

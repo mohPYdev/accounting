@@ -1,8 +1,6 @@
 package graphic;
 
-import costumer.Instrument;
-import costumer.MAIN;
-import costumer.Project;
+import costumer.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -44,11 +42,21 @@ public class Add_Instrument extends JFrame {
 	}
 
 	private void button1ActionPerformed(ActionEvent e) throws Exception {
-		Instrument instrument = new Instrument(date.getText() , String.valueOf(price.getValue()) , s1.getText(), s2.getText());
-
 		TreeMap<String , String > nameToPath = MAIN.READ_OBJECT(new File("paths.txt"));
 		String path = nameToPath.get(name.getText());
-		MAIN.WRITE_OBJECT(new File(path + "/" + name.getText() + "/Instruments/" + s1.getText()+"_"+s2.getText()+".txt") , instrument);
+		Costumer costumer = MAIN.READ_OBJECT(new File(path + "/" + name.getText() + "/Attributes/info.txt"));
+		if(costumer instanceof Municipality || costumer instanceof Factory) {
+			Instrument instrument = new Instrument(date.getText(), String.valueOf(price.getValue()), s1.getText(), s2.getText());
+			MAIN.WRITE_OBJECT(new File(path + "/" + name.getText() + "/Instruments/" + s1.getText() + "_" + s2.getText() + ".txt"), instrument);
+		}
+		else{
+			try{
+				throw new InvalidData();
+			}catch (InvalidData ex)
+			{
+				JOptionPane.showMessageDialog(rootPane , ex.getMessage());
+			}
+		}
 	}
 
 	private void button2ActionPerformed(ActionEvent e) {
