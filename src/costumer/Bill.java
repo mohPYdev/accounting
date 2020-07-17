@@ -1,6 +1,8 @@
 package costumer;
 
-public class Bill {
+import java.io.Serializable;
+
+public class Bill implements Serializable {
     public enum BillType{
         WATER , GAS , POWER , TELEPHONE
     }
@@ -9,7 +11,7 @@ public class Bill {
     String date;  //    year/month/day
     BillType type;
 
-    Bill(String id , String price , String date , BillType type)
+    public Bill(String id, String price, String date, BillType type)
     {
         this.id = id;
         this.price = price;

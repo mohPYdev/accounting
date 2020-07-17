@@ -1,5 +1,3 @@
 /out/
 /.idea/
-/User.txt/
-/accounting.jfdproj/
-/*.jfd/
+*.txt

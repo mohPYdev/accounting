@@ -23,7 +23,7 @@ public class MAIN {
         return obj;
     }
 
-    public static <T extends  Costumer>void WRITE_OBJECT(File file , T cf) throws Exception
+    public static <T >void WRITE_OBJECT(File file , T cf) throws Exception
     {
         FileOutputStream fout = new FileOutputStream(file);
         ObjectOutputStream out = new ObjectOutputStream(fout);

@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq l {space :p:104:p, par t {comp label1:::p:183:p, comp label3:::p:183:p}, space :71:71:p, par l {comp passwordField1:::p:213:p, comp textField1:::::x}}, seq {par l {seq {space :p:250:p, comp label2:::p:159:p}, seq l {space :p:118:p, comp label4:::p:208:p, space :p:54:p, comp button2:::p:118:p}}, space :0:0:x}}, space ::91:x}, seq t {space ::174:x, comp label5:::p:473:p, space :::p}, seq l {space :p:233:p, comp button1:::p:152:p, space ::277:x}}"
-			"$verticalGroup": "par l {seq t {space :::p, comp label2:::p:82:p, space :p:26:p, par b {comp label1::b:p:42:p, comp textField1::b:p:42:p}, space :p:47:p, par l:::p {comp label3::::42:x, comp passwordField1::::42:x}, space :p:46:p, comp button1:::p:42:p, space ::46:x, comp label5:::p:44:p, space :::p, par b {comp button2::b:p::p, comp label4::b:p:50:p}, space :p:17:p}}"
+			"$horizontalGroup": "par l {seq t {par t {seq {space ::166:x, comp label5:::p:473:p}, seq {space :p:58:p, par l {comp label3:::p:183:p, comp label1:::p:183:p}, space :p:28:p, par l {comp textField1:::::x, comp passwordField1::::370:x}}}, space :p:23:p}, seq {par l {seq l {space :p:247:p, comp label2:::p:159:p}, seq l {space :p:236:p, comp button1:::p:152:p}, seq l {space :p:121:p, comp label4:::p:208:p, space :::p, comp button2:::p:118:p}}, space ::209:x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp label2:::p:56:p, space :::p, par b {comp textField1::b:p:42:p, comp label1::b:p:42:p}, space :p:44:p, par b {comp passwordField1::b:p:42:p, comp label3::b:p:42:p}, space s:::p, comp button1:::p:42:p, space u:::p, comp label5:::p:44:p, space u:::p, par b {comp label4::b:p:50:p, comp button2::b:p::p}, space ::12:x}}"
 		} ) {
 			name: "this"
 			"title": "Accounting"
@@ -54,7 +54,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 443, 373 )
+			"size": new java.awt.Dimension( 443, 307 )
 		} )
 	}
 }

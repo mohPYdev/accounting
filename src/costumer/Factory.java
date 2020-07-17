@@ -1,10 +1,11 @@
 package costumer;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-public class Factory extends Costumer  {
+public class Factory extends Costumer implements Serializable {
 
 
     ArrayList<Instrument> instruments = new ArrayList<>();
@@ -24,8 +25,8 @@ public class Factory extends Costumer  {
 
 
 
-    Factory(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names
-            , int econemic_code,int equities,String boss_name, String address, String date_of_establishment, double fix,double tax) {
+    public Factory(String name, String email, String phone_number, String activity_type, ArrayList<String> employee_names
+            , int econemic_code, int equities, String boss_name, String address, String date_of_establishment, double fix, double tax) {
         super(name, email, phone_number, activity_type, employee_names);
         this.econemic_code=econemic_code;
         this.equities=equities;

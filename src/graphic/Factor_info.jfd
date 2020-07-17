@@ -1,0 +1,62 @@
+JFDML JFormDesigner: "6.0.0.0.84" Java: "1.8.0_112" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:105:p, comp scrollPane1:::p:363:p}, seq l {space :p:217:p, comp label1:::p:163:p}, seq l {space :p:116:p, par l:::p {seq t {comp label4:::p:141:p, space ::97:x, comp cost:::p:141:p}, seq l {comp label3:::p:141:p, space :::x, comp receiver:::p:141:p}, seq {comp label2:::p:141:p, space :::x, comp sender:::p:141:p}}}, seq l {space :p:244:p, comp button1:::p:107:p}}, space ::103:x}}"
+			"$verticalGroup": "par l {seq l {space :p:14:p, comp label1:::p:48:p, space :::p, comp scrollPane1:::p:103:p, space :p:28:p, par b {comp label2::b:p:36:p, comp sender::b:p:36:p}, space :::p, par l {comp label3:::p:36:p, comp receiver:::p:36:p}, space :::x, par l {comp cost:::p:36:p, comp label4:::p:36:p}, space :::p, comp button1:::p::p, space :p:13:p}}"
+		} ) {
+			name: "this"
+			"title": "Accounting"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "products"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 1, 11, false )
+				"enabled": false
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "textArea1"
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 8, false )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Sender : "
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Receiver :"
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "receiver"
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "sender"
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "OK"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Total cost :"
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "cost"
+				"font": #SwingDerivedFont0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 284 )
+		} )
+	}
+}

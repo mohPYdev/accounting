@@ -1,16 +1,17 @@
 package costumer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Factor {
-    enum types{
+public class Factor implements Serializable {
+    public enum types{
         BUY , SALE
     }
     String ID , date  , sender , receiver;
     types type ;
     ArrayList<Product> products = new ArrayList<>();
 
-    Factor(String ID, String date , types type , String sender ,String receiver , ArrayList<Product> products)
+    public Factor(String ID, String date, types type, String sender, String receiver, ArrayList<Product> products)
     {
         this.ID = ID;
         this.date = date;
@@ -30,4 +31,19 @@ public class Factor {
         return cost;
     }
 
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
 }

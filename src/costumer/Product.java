@@ -1,10 +1,12 @@
 package costumer;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
 
     private String name , price , value_added;
 
-    Product(String name , String price , String value_added)
+    public Product(String name, String price, String value_added)
     {
         this.name = name;
         this.price = price;

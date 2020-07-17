@@ -1,10 +1,12 @@
 package costumer;
 
-public class Project {
+import java.io.Serializable;
+
+public class Project implements Serializable {
 
     private String activity_kind , price , date , name;
 
-    Project(String activity_kind , String price , String date , String name)
+    public Project(String activity_kind, String price, String date, String name)
     {
         this.activity_kind = activity_kind;
         this.price = price;

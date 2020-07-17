@@ -1,0 +1,148 @@
+JFDML JFormDesigner: "6.0.0.0.84" Java: "1.8.0_112" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:45:p, comp label6:::p:408:p, space :p:49:p, comp label2:::p:328:p, space ::350:x}, seq l {par l {seq l {space :p:27:p, par l:::p {comp label1::l:::x, comp label3::t:::x, comp label4::l:p:285:p}, space :p:30:p, par l {comp price:::p:139:p, comp value::l:p:139:p, comp name:::p:160:p}}, seq l {space :p:150:p, comp button1:::p:144:p, space :::p, comp label7:::p:148:p}}, space :p:90:p, par l {seq {comp label11:::p:229:p, space ::86:x, comp receiver:::p:197:p}, seq t {comp label10:::p:229:p, space ::86:x, comp sender:::p:197:p}, seq t {comp label9:::p:229:p, space ::86:x, comp date:::p:197:p}, seq t {comp label8:::p:229:p, space ::86:x, comp id:::p:197:p}, seq t {par l {comp label12::l:p:229:p, comp label13::l:p:229:p}, space ::86:x, par l:::p {comp fname::::197:x, comp comboBox1::::197:x}}}, space :p:76:p}, seq t {space ::414:x, par l {seq t {comp button2:::p:108:p, space :p:552:p}, seq t {comp label5:::p:433:p, space :p:333:p}}}}"
+			"$verticalGroup": "par l {seq l {par l {seq {space :p:31:p, comp label6:::p::p}, comp label2::l:p::p}, space :::p, par t {comp label1:::p:36:p, par b {comp label8::b:p:36:p, comp id::b:p:36:p, comp name::b:p:36:p}}, space :::p, par b {comp label3::b:p:42:p, comp price::b:p:42:p, comp label9::b:p:36:p, comp date::b:p:36:p}, space :::p, par b {comp label4::b:p:42:p, comp value::b:p:42:p, comp label10::b:p:36:p, comp sender::b:p:36:p}, par l {seq {space :p:24:p, par b {comp label7::b:p::p, comp button1::b:p::p}}, seq l {space :::p, par b {comp label11::b:p:36:p, comp receiver::b:p:36:p}}}, space s:::p, par b {comp label12::b:p:36:p, comp fname::b:p:36:p}, space s:::p, par b {comp label13::b:p:36:p, comp comboBox1::b:p::p}, space ::46:x, comp label5:::p::p, space :::p, comp button2:::p::p, space :p:25:p}}"
+		} ) {
+			name: "this"
+			"title": "Accounting"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "factor"
+				"font": new java.awt.Font( "Stencil", 1, 44 )
+				"enabled": false
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "name : "
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Price : "
+				"font": &SwingDerivedFont1 new com.jformdesigner.model.SwingDerivedFont( null, 0, 9, false )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "name"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Add"
+				"font": &SwingDerivedFont2 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Value added to price : "
+				"font": #SwingDerivedFont1
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "price"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "when you are done click on the button below"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Done"
+				"font": #SwingDerivedFont2
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "value"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "specify the product that you want to add to factor "
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "to factor"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "ID : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "Date : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label10"
+				"text": "Sender : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label11"
+				"text": "Receiver : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "id"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "receiver"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "sender"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "date"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label12"
+				"font": #SwingDerivedFont0
+				"text": "Facility's name : "
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "fname"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label13"
+				"text": "Type : "
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "buy"
+					addElement( "buy" )
+					addElement( "sale" )
+				}
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				"background": new java.awt.Color( 204, 204, 204, 255 )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": "menu "
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem1"
+						"text": "log out"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem1ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem2"
+						"text": "accountant"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem2ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem3"
+						"text": "Register"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem3ActionPerformed", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 788, 396 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

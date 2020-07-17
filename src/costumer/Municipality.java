@@ -1,26 +1,22 @@
 package costumer;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Formatter;
 
-public class Municipality extends Costumer  {
+public class Municipality extends Costumer implements Serializable {
 
     Receivals Receivals_pointer;
     ArrayList<Factor> factors = new ArrayList<>();
     ArrayList<Instrument> instruments = new ArrayList<>();
     ArrayList<Salary> salaries = new ArrayList<>();
     private double fund;
-
-
     private String mayor_name;
     private int region;
 
-
-
-
-    Municipality(String name, String email, String phone_number
-            , String activity_type, ArrayList<String> employee_names,String mayor_name,int region, double fund , Receivals Receivals_pointer ) {
+    public Municipality(String name, String email, String phone_number
+            , String activity_type, ArrayList<String> employee_names, String mayor_name, int region, double fund, Receivals Receivals_pointer) {
 
         super(name, email, phone_number, activity_type, employee_names);
 
