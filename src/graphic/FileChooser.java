@@ -21,6 +21,9 @@ import javax.swing.GroupLayout;
  */
 public class FileChooser extends JFrame {
 	public FileChooser() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

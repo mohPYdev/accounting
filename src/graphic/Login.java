@@ -17,6 +17,9 @@ import javax.swing.LayoutStyle;
  */
 public class Login extends JFrame {
 	public Login() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

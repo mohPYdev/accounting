@@ -20,6 +20,9 @@ import javax.swing.LayoutStyle;
  */
 public class Add_Project extends JFrame {
 	public Add_Project() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

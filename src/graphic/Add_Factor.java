@@ -22,6 +22,9 @@ import javax.swing.LayoutStyle;
 public class Add_Factor extends JFrame {
 	ArrayList<Product> products = new ArrayList<>();
 	public Add_Factor() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

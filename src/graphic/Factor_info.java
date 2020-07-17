@@ -21,6 +21,8 @@ public class Factor_info extends JFrame {
 	Factor factor;
 	public Factor_info(Factor factor) {
 		initComponents();
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		this.factor = factor;
 		StringBuilder text = new StringBuilder();
 		for(Product p : factor.getProducts())

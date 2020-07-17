@@ -21,6 +21,8 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Instrument extends JFrame {
 	public Show_Instrument() {
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

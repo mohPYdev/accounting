@@ -21,6 +21,9 @@ import javax.swing.LayoutStyle;
  */
 public class Add_Salary extends JFrame {
 	public Add_Salary() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

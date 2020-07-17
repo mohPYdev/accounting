@@ -25,6 +25,9 @@ import javax.swing.LayoutStyle;
  */
 public class AccountingSearch extends JFrame {
 	public AccountingSearch() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 
