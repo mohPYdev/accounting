@@ -1,5 +1,5 @@
 # accounting
-This is owr University's final project for calculating the costs and incomes of 3 facility types including factories , companies and municipalities.
+This is our University's final project for calculating the costs and incomes of 3 facility types including factories , companies and municipalities.
 
 # how to use
 Run the main.java class in the graphic package. 
