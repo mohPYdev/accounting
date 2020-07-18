@@ -21,6 +21,9 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Fix extends JFrame {
 	public Show_Fix() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

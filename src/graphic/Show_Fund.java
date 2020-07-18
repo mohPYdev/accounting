@@ -20,6 +20,9 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Fund extends JFrame {
 	public Show_Fund() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

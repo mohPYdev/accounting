@@ -20,6 +20,9 @@ import javax.swing.GroupLayout;
  */
 public class Show_Bill extends JFrame {
 	public Show_Bill() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

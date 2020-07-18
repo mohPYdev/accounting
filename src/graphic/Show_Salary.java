@@ -21,6 +21,8 @@ import javax.swing.GroupLayout;
  */
 public class Show_Salary extends JFrame {
 	public Show_Salary() {
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

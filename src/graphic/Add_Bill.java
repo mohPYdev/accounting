@@ -20,6 +20,9 @@ import javax.swing.LayoutStyle;
  */
 public class Add_Bill extends JFrame {
 	public Add_Bill() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

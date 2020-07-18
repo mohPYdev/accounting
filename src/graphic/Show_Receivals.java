@@ -20,6 +20,8 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Receivals extends JFrame {
 	public Show_Receivals() {
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

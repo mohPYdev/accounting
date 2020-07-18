@@ -20,6 +20,8 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Tax extends JFrame {
 	public Show_Tax() {
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

@@ -22,6 +22,9 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Factor extends JFrame {
 	public Show_Factor() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

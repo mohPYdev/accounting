@@ -21,6 +21,9 @@ import javax.swing.GroupLayout;
  */
 public class Show_Project extends JFrame {
 	public Show_Project() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

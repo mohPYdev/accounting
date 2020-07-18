@@ -21,6 +21,9 @@ import javax.swing.LayoutStyle;
  */
 public class Show_Investment extends JFrame {
 	public Show_Investment() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

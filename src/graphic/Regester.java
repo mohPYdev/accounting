@@ -24,6 +24,8 @@ public class Regester extends JFrame {
 	TreeMap<String , String> nameToPath = new TreeMap<>();
 	FileChooser fileChooser;
 	public Regester() {
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

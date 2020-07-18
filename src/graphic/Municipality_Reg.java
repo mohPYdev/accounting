@@ -32,6 +32,8 @@ public class Municipality_Reg extends JFrame {
 		this.email = email;
 		this.activity = activity;
 		this.phone = phone;
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 	}
 
 	private void menuItem1ActionPerformed(ActionEvent e) {

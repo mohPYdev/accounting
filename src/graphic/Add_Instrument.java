@@ -20,6 +20,9 @@ import javax.swing.LayoutStyle;
  */
 public class Add_Instrument extends JFrame {
 	public Add_Instrument() {
+
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 

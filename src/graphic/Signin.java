@@ -18,6 +18,8 @@ import javax.swing.LayoutStyle;
  */
 public class Signin extends JFrame {
 	public Signin() {
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		initComponents();
 	}
 
